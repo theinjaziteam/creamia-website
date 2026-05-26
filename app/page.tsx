@@ -336,7 +336,7 @@ function ProductCard({ product }: { product: Product }) {
               borderRadius: "9999px",
               padding: "4px 12px",
               fontSize: "0.75rem",
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Saira Condensed', sans-serif",
               fontWeight: 700,
               letterSpacing: "0.05em",
             }}
@@ -359,7 +359,7 @@ function ProductCard({ product }: { product: Product }) {
       >
         <h3
           style={{
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "'Saira Extra Condensed', sans-serif",
             fontWeight: 700,
             fontSize: "1.125rem",
             color: product.text,
@@ -387,7 +387,7 @@ function ProductCard({ product }: { product: Product }) {
                 fontSize: "0.8125rem",
                 color: product.text,
                 opacity: 0.7,
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Saira Condensed', sans-serif",
               }}
             >
               Medium Tray{" "}
@@ -402,7 +402,7 @@ function ProductCard({ product }: { product: Product }) {
                 fontSize: "0.8125rem",
                 color: product.text,
                 opacity: 0.7,
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Saira Condensed', sans-serif",
               }}
             >
               Small Box{" "}
@@ -417,7 +417,7 @@ function ProductCard({ product }: { product: Product }) {
                 fontSize: "0.8125rem",
                 fontWeight: 700,
                 color: product.accent,
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Saira Condensed', sans-serif",
                 letterSpacing: "0.05em",
               }}
             >
@@ -475,7 +475,7 @@ function BoxCard({ box }: { box: BoxCollection }) {
         <div
           style={{
             fontSize: "0.75rem",
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Saira Condensed', sans-serif",
             fontWeight: 700,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
@@ -487,7 +487,7 @@ function BoxCard({ box }: { box: BoxCollection }) {
         </div>
         <h3
           style={{
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "'Saira Extra Condensed', sans-serif",
             fontWeight: 700,
             fontSize: "1.75rem",
             color: box.text,
@@ -533,14 +533,14 @@ function BoxCard({ box }: { box: BoxCollection }) {
                 fontSize: "0.875rem",
                 color: box.text,
                 opacity: 0.8,
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Saira Condensed', sans-serif",
               }}
             >
               Bavarian / Mousse
             </span>
             <span
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Saira Extra Condensed', sans-serif",
                 fontWeight: 700,
                 fontSize: "1.125rem",
                 color: box.accent,
@@ -565,14 +565,14 @@ function BoxCard({ box }: { box: BoxCollection }) {
                 fontSize: "0.875rem",
                 color: box.text,
                 opacity: 0.8,
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Saira Condensed', sans-serif",
               }}
             >
               Tiramisu / Cheesecake
             </span>
             <span
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Saira Extra Condensed', sans-serif",
                 fontWeight: 700,
                 fontSize: "1.125rem",
                 color: box.accent,
@@ -595,7 +595,7 @@ function BoxCard({ box }: { box: BoxCollection }) {
             color: box.text === "#FBF5EC" ? "#fff" : box.text,
             borderRadius: "9999px",
             padding: "0.7rem 1.5rem",
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Saira Condensed', sans-serif",
             fontWeight: 700,
             fontSize: "0.875rem",
             letterSpacing: "0.06em",
@@ -638,7 +638,7 @@ function Navbar() {
       <a
         href="#"
         style={{
-          fontFamily: "'Cormorant Garamond', serif",
+          fontFamily: "'Saira Extra Condensed', sans-serif",
           fontWeight: 700,
           fontSize: "1.5rem",
           color: "#C4622D",
@@ -663,7 +663,7 @@ function Navbar() {
             key={link}
             href={`#${link.toLowerCase().replace(" ", "-")}`}
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Saira Condensed', sans-serif",
               fontSize: "0.9rem",
               fontWeight: 500,
               letterSpacing: "0.06em",
@@ -748,7 +748,7 @@ function Navbar() {
               href={`#${link.toLowerCase().replace(" ", "-")}`}
               onClick={() => setOpen(false)}
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Saira Condensed', sans-serif",
                 fontSize: "1.1rem",
                 fontWeight: 600,
                 letterSpacing: "0.06em",
@@ -824,7 +824,7 @@ function Hero() {
           >
             <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#C4622D", display: "inline-block", flexShrink: 0 }} />
             <span style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Saira Condensed', sans-serif",
               fontSize: "0.75rem",
               fontWeight: 500,
               letterSpacing: "0.2em",
@@ -836,7 +836,7 @@ function Hero() {
           </motion.div>
 
           <h1 style={{
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "'Saira Extra Condensed', sans-serif",
             fontSize: "clamp(3rem, 5.5vw, 5.2rem)",
             fontWeight: 600,
             lineHeight: 1.05,
@@ -854,7 +854,8 @@ function Hero() {
                   display: "block",
                   color: line === "New Layer" ? "#C4622D" : "#FBF5EC",
                   fontStyle: line === "New Layer" ? "italic" : "normal",
-                  fontWeight: line === "New Layer" ? 500 : 600,
+                  fontFamily: line === "New Layer" ? "'Cormorant Garamond', serif" : "'Saira Extra Condensed', sans-serif",
+                  fontWeight: line === "New Layer" ? 400 : 800,
                 }}
               >
                 {line}
@@ -867,7 +868,7 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.65 }}
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Saira Condensed', sans-serif",
               fontSize: "1.0625rem",
               color: "rgba(251,245,236,0.5)",
               lineHeight: 1.8,
@@ -917,17 +918,18 @@ function Hero() {
             {[["10+", "Flavours"], ["3", "Box sizes"], ["LB", "Lebanon"]].map(([val, label]) => (
               <div key={label}>
                 <div style={{
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: "2rem",
-                  fontWeight: 600,
+                  fontFamily: "'IBM Plex Mono', monospace",
+                  fontSize: "1.5rem",
+                  fontWeight: 500,
                   color: "#C4622D",
                   lineHeight: 1,
                   marginBottom: "0.2rem",
+                  letterSpacing: "-0.02em",
                 }}>
                   {val}
                 </div>
                 <div style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Saira Condensed', sans-serif",
                   fontSize: "0.7rem",
                   color: "rgba(251,245,236,0.3)",
                   letterSpacing: "0.14em",
@@ -1005,7 +1007,7 @@ function Hero() {
           >
             <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#C4622D", flexShrink: 0 }} />
             <span style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Saira Condensed', sans-serif",
               fontSize: "0.75rem",
               fontWeight: 500,
               color: "rgba(251,245,236,0.8)",
@@ -1030,16 +1032,17 @@ function Hero() {
             }}
           >
             <div style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "1.5rem",
-              fontWeight: 600,
+              fontFamily: "'IBM Plex Mono', monospace",
+              fontSize: "1.2rem",
+              fontWeight: 500,
               color: "#FBF5EC",
               lineHeight: 1,
+              letterSpacing: "-0.02em",
             }}>
               From $4
             </div>
             <div style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Saira Condensed', sans-serif",
               fontSize: "0.7rem",
               color: "rgba(251,245,236,0.75)",
               letterSpacing: "0.1em",
@@ -1069,7 +1072,7 @@ function Hero() {
         }}
       >
         <span style={{
-          fontFamily: "'DM Sans', sans-serif",
+          fontFamily: "'Saira Condensed', sans-serif",
           fontSize: "0.65rem",
           letterSpacing: "0.28em",
           textTransform: "uppercase",
@@ -1195,7 +1198,7 @@ function OurStory() {
                 >
                   <div
                     style={{
-                      fontFamily: "'Cormorant Garamond', serif",
+                      fontFamily: "'Saira Extra Condensed', sans-serif",
                       fontSize: "4rem",
                       color: "#2C1810",
                       opacity: 0.15,
@@ -1220,10 +1223,10 @@ function OurStory() {
                   boxShadow: "0 8px 32px rgba(44,24,16,0.25)",
                 }}
               >
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#C4622D", marginBottom: "0.25rem" }}>
+                <div style={{ fontFamily: "'Saira Condensed', sans-serif", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#C4622D", marginBottom: "0.25rem" }}>
                   Since
                 </div>
-                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 700 }}>
+                <div style={{ fontFamily: "'Saira Extra Condensed', sans-serif", fontSize: "1.5rem", fontWeight: 700 }}>
                   2023
                 </div>
               </div>
@@ -1236,7 +1239,7 @@ function OurStory() {
               <div
                 style={{
                   fontSize: "0.8125rem",
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Saira Condensed', sans-serif",
                   fontWeight: 700,
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
@@ -1248,7 +1251,7 @@ function OurStory() {
               </div>
               <h2
                 style={{
-                  fontFamily: "'Cormorant Garamond', serif",
+                  fontFamily: "'Saira Extra Condensed', sans-serif",
                   fontSize: "clamp(2rem, 3.5vw, 3rem)",
                   fontWeight: 700,
                   color: "#2C1810",
@@ -1263,7 +1266,7 @@ function OurStory() {
             <AnimatedSection delay={0.2}>
               <p
                 style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Saira Condensed', sans-serif",
                   fontSize: "1.0625rem",
                   color: "#3D2418",
                   opacity: 0.8,
@@ -1275,7 +1278,7 @@ function OurStory() {
               </p>
               <p
                 style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Saira Condensed', sans-serif",
                   fontSize: "1.0625rem",
                   color: "#3D2418",
                   opacity: 0.8,
@@ -1310,10 +1313,10 @@ function OurStory() {
                       
                     </div>
                     <div>
-                      <div style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: "0.9375rem", color: "#2C1810" }}>
+                      <div style={{ fontFamily: "'Saira Condensed', sans-serif", fontWeight: 700, fontSize: "0.9375rem", color: "#2C1810" }}>
                         {v.label}
                       </div>
-                      <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem", color: "#8B6B55" }}>
+                      <div style={{ fontFamily: "'Saira Condensed', sans-serif", fontSize: "0.875rem", color: "#8B6B55" }}>
                         {v.desc}
                       </div>
                     </div>
@@ -1363,7 +1366,7 @@ function MenuSection() {
             <div
               style={{
                 fontSize: "0.8125rem",
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Saira Condensed', sans-serif",
                 fontWeight: 700,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
@@ -1375,7 +1378,7 @@ function MenuSection() {
             </div>
             <h2
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Saira Extra Condensed', sans-serif",
                 fontSize: "clamp(2rem, 4vw, 3.5rem)",
                 fontWeight: 700,
                 color: "#2C1810",
@@ -1387,7 +1390,7 @@ function MenuSection() {
             </h2>
             <p
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Saira Condensed', sans-serif",
                 fontSize: "1.0625rem",
                 color: "#8B6B55",
                 maxWidth: "480px",
@@ -1430,7 +1433,7 @@ function MenuSection() {
                   style={{
                     borderRadius: "9999px",
                     padding: "0.65rem 1.5rem",
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: "'Saira Condensed', sans-serif",
                     fontWeight: 600,
                     fontSize: "0.9rem",
                     letterSpacing: "0.04em",
@@ -1481,7 +1484,7 @@ function MenuSection() {
           >
             <p
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Saira Condensed', sans-serif",
                 fontSize: "0.9375rem",
                 color: "#8B6B55",
               }}
@@ -1530,7 +1533,7 @@ function BoxCollections() {
             <div
               style={{
                 fontSize: "0.8125rem",
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Saira Condensed', sans-serif",
                 fontWeight: 700,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
@@ -1542,7 +1545,7 @@ function BoxCollections() {
             </div>
             <h2
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Saira Extra Condensed', sans-serif",
                 fontSize: "clamp(2rem, 4vw, 3.5rem)",
                 fontWeight: 700,
                 color: "#FBF5EC",
@@ -1554,7 +1557,7 @@ function BoxCollections() {
             </h2>
             <p
               style={{
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Saira Condensed', sans-serif",
                 fontSize: "1.0625rem",
                 color: "rgba(251,245,236,0.55)",
                 maxWidth: "480px",
@@ -1629,7 +1632,7 @@ function OrderCTA() {
           <div
             style={{
               fontSize: "0.8125rem",
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Saira Condensed', sans-serif",
               fontWeight: 700,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
@@ -1641,7 +1644,7 @@ function OrderCTA() {
           </div>
           <h2
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "'Saira Extra Condensed', sans-serif",
               fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
               fontWeight: 700,
               color: "#2C1810",
@@ -1653,7 +1656,7 @@ function OrderCTA() {
           </h2>
           <p
             style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Saira Condensed', sans-serif",
               fontSize: "1.125rem",
               color: "#8B6B55",
               lineHeight: 1.75,
@@ -1710,7 +1713,7 @@ function OrderCTA() {
           >
             <p
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Saira Extra Condensed', sans-serif",
                 fontStyle: "italic",
                 fontSize: "1.5rem",
                 color: "#C4622D",
@@ -1752,7 +1755,7 @@ function Footer() {
         <a
           href="#"
           style={{
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "'Saira Extra Condensed', sans-serif",
             fontWeight: 700,
             fontSize: "2rem",
             color: "#C4622D",
@@ -1765,7 +1768,7 @@ function Footer() {
 
         <p
           style={{
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "'Saira Extra Condensed', sans-serif",
             fontStyle: "italic",
             fontSize: "0.9375rem",
             color: "rgba(251,245,236,0.45)",
@@ -1783,7 +1786,7 @@ function Footer() {
             display: "inline-flex",
             alignItems: "center",
             gap: "0.5rem",
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Saira Condensed', sans-serif",
             fontSize: "0.875rem",
             fontWeight: 600,
             color: "#C4622D",
@@ -1810,7 +1813,7 @@ function Footer() {
 
         <p
           style={{
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Saira Condensed', sans-serif",
             fontSize: "0.8125rem",
             color: "rgba(251,245,236,0.3)",
             letterSpacing: "0.06em",
