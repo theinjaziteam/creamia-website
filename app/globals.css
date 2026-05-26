@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700;800;900&family=Saira+Extra+Condensed:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=IBM+Plex+Mono:wght@300;400;500&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -22,9 +22,11 @@
   --color-espresso: var(--espresso);
   --color-caramel: var(--caramel);
   --color-brown: var(--brown);
-  --font-display: 'Cormorant Garamond', serif;
+  --font-display: 'Saira Extra Condensed', sans-serif;
+  --font-condensed: 'Saira Condensed', sans-serif;
   --font-serif: 'Cormorant Garamond', serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-body: 'Saira Condensed', sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,7 +34,7 @@
 html { background: var(--cream); color: var(--espresso); overflow-x: hidden; scroll-behavior: smooth; }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   background: var(--cream);
@@ -71,7 +73,7 @@ body {
   color: #fff;
   border-radius: 9999px;
   padding: 0.875rem 2.25rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
   letter-spacing: 0.08em;
@@ -96,7 +98,7 @@ body {
   border: 1.5px solid var(--border-warm);
   border-radius: 9999px;
   padding: 0.875rem 2.25rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
   letter-spacing: 0.08em;
