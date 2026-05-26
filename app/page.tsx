@@ -1,12 +1,10 @@
 "use client";
 
-import { useState, useRef } from "react";
-import dynamic from "next/dynamic";
+import { useState } from "react";
 import { motion, useInView } from "framer-motion";
 import MarqueeBar from "../components/MarqueeBar";
 import AnimatedSection from "../components/AnimatedSection";
 
-const CremiBox3D = dynamic(() => import("../components/CremiBox3D"), { ssr: false });
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -210,7 +208,7 @@ const boxCollections: BoxCollection[] = [
     bg: "#F2E8D5",
     text: "#2C1810",
     accent: "#C4622D",
-    icon: "☕",
+    icon: "02",
     tagline: "Perfect for two — or just you.",
   },
   {
@@ -222,7 +220,7 @@ const boxCollections: BoxCollection[] = [
     bg: "#2C1810",
     text: "#FBF5EC",
     accent: "#C4871F",
-    icon: "✨",
+    icon: "04",
     tagline: "Bring joy to every table.",
   },
   {
@@ -234,7 +232,7 @@ const boxCollections: BoxCollection[] = [
     bg: "#C4622D",
     text: "#FBF5EC",
     accent: "#FFD700",
-    icon: "🎉",
+    icon: "08",
     tagline: "For the moments that deserve more.",
   },
 ];
@@ -251,7 +249,7 @@ function ProductCard({ product }: { product: Product }) {
 
   return (
     <div
-      className="card-3d rounded-2xl overflow-hidden flex flex-col"
+      className="card-hover rounded-2xl overflow-hidden flex flex-col"
       style={{ minHeight: "400px" }}
     >
       {/* Decorative dessert illustration area */}
@@ -338,7 +336,7 @@ function ProductCard({ product }: { product: Product }) {
               borderRadius: "9999px",
               padding: "4px 12px",
               fontSize: "0.75rem",
-              fontFamily: "'Karla', sans-serif",
+              fontFamily: "'DM Sans', sans-serif",
               fontWeight: 700,
               letterSpacing: "0.05em",
             }}
@@ -361,7 +359,7 @@ function ProductCard({ product }: { product: Product }) {
       >
         <h3
           style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Cormorant Garamond', serif",
             fontWeight: 700,
             fontSize: "1.125rem",
             color: product.text,
@@ -389,7 +387,7 @@ function ProductCard({ product }: { product: Product }) {
                 fontSize: "0.8125rem",
                 color: product.text,
                 opacity: 0.7,
-                fontFamily: "'Karla', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
               }}
             >
               Medium Tray{" "}
@@ -404,7 +402,7 @@ function ProductCard({ product }: { product: Product }) {
                 fontSize: "0.8125rem",
                 color: product.text,
                 opacity: 0.7,
-                fontFamily: "'Karla', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
               }}
             >
               Small Box{" "}
@@ -419,7 +417,7 @@ function ProductCard({ product }: { product: Product }) {
                 fontSize: "0.8125rem",
                 fontWeight: 700,
                 color: product.accent,
-                fontFamily: "'Karla', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 letterSpacing: "0.05em",
               }}
             >
@@ -477,7 +475,7 @@ function BoxCard({ box }: { box: BoxCollection }) {
         <div
           style={{
             fontSize: "0.75rem",
-            fontFamily: "'Karla', sans-serif",
+            fontFamily: "'DM Sans', sans-serif",
             fontWeight: 700,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
@@ -489,7 +487,7 @@ function BoxCard({ box }: { box: BoxCollection }) {
         </div>
         <h3
           style={{
-            fontFamily: "'Playfair Display SC', serif",
+            fontFamily: "'Cormorant Garamond', serif",
             fontWeight: 700,
             fontSize: "1.75rem",
             color: box.text,
@@ -535,14 +533,14 @@ function BoxCard({ box }: { box: BoxCollection }) {
                 fontSize: "0.875rem",
                 color: box.text,
                 opacity: 0.8,
-                fontFamily: "'Karla', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
               }}
             >
               Bavarian / Mousse
             </span>
             <span
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 700,
                 fontSize: "1.125rem",
                 color: box.accent,
@@ -567,14 +565,14 @@ function BoxCard({ box }: { box: BoxCollection }) {
                 fontSize: "0.875rem",
                 color: box.text,
                 opacity: 0.8,
-                fontFamily: "'Karla', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
               }}
             >
               Tiramisu / Cheesecake
             </span>
             <span
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 700,
                 fontSize: "1.125rem",
                 color: box.accent,
@@ -597,7 +595,7 @@ function BoxCard({ box }: { box: BoxCollection }) {
             color: box.text === "#FBF5EC" ? "#fff" : box.text,
             borderRadius: "9999px",
             padding: "0.7rem 1.5rem",
-            fontFamily: "'Karla', sans-serif",
+            fontFamily: "'DM Sans', sans-serif",
             fontWeight: 700,
             fontSize: "0.875rem",
             letterSpacing: "0.06em",
@@ -640,7 +638,7 @@ function Navbar() {
       <a
         href="#"
         style={{
-          fontFamily: "'Playfair Display SC', serif",
+          fontFamily: "'Cormorant Garamond', serif",
           fontWeight: 700,
           fontSize: "1.5rem",
           color: "#C4622D",
@@ -665,7 +663,7 @@ function Navbar() {
             key={link}
             href={`#${link.toLowerCase().replace(" ", "-")}`}
             style={{
-              fontFamily: "'Karla', sans-serif",
+              fontFamily: "'DM Sans', sans-serif",
               fontSize: "0.9rem",
               fontWeight: 500,
               letterSpacing: "0.06em",
@@ -750,7 +748,7 @@ function Navbar() {
               href={`#${link.toLowerCase().replace(" ", "-")}`}
               onClick={() => setOpen(false)}
               style={{
-                fontFamily: "'Karla', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 fontSize: "1.1rem",
                 fontWeight: 600,
                 letterSpacing: "0.06em",
@@ -771,14 +769,12 @@ function Navbar() {
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
 function Hero() {
-  const words = ["Every", "Spoon", "Hits", "a", "New", "Layer"];
-
   return (
     <section
       id="hero"
       style={{
         minHeight: "100vh",
-        background: "radial-gradient(ellipse at 65% 50%, #2A1108 0%, #140804 55%, #0A0402 100%)",
+        background: "#0D0704",
         display: "flex",
         alignItems: "center",
         position: "relative",
@@ -786,130 +782,118 @@ function Hero() {
         paddingTop: "72px",
       }}
     >
-      {/* Subtle warm vignette glow behind where the box sits */}
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          right: "8%",
-          transform: "translateY(-50%)",
-          width: "600px",
-          height: "600px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(196,98,45,0.14) 0%, rgba(196,135,31,0.06) 45%, transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
+      {/* Warm ambient glow from the right column */}
+      <div style={{
+        position: "absolute",
+        right: 0,
+        top: 0,
+        width: "55%",
+        height: "100%",
+        background: "radial-gradient(ellipse at 70% 50%, rgba(157,94,58,0.18) 0%, transparent 65%)",
+        pointerEvents: "none",
+      }} />
 
       <div
         style={{
-          maxWidth: "1280px",
+          maxWidth: "1300px",
           margin: "0 auto",
-          padding: "4rem 2rem",
+          padding: "3rem 2rem",
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "2rem",
+          gridTemplateColumns: "1fr 1.1fr",
+          gap: "4rem",
           alignItems: "center",
           width: "100%",
         }}
         className="hero-grid"
       >
-        {/* Left: Text */}
-        <div>
-          {/* Eyebrow */}
+        {/* ── Left: Copy ── */}
+        <div style={{ position: "relative", zIndex: 2 }}>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             style={{
               display: "inline-flex",
               alignItems: "center",
               gap: "0.5rem",
-              background: "rgba(196,98,45,0.12)",
-              border: "1px solid rgba(196,98,45,0.28)",
+              border: "1px solid rgba(196,98,45,0.3)",
               borderRadius: "9999px",
-              padding: "0.35rem 1rem",
-              marginBottom: "2rem",
+              padding: "0.3rem 0.9rem",
+              marginBottom: "2.25rem",
             }}
           >
-            <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#C4622D", display: "inline-block" }} />
-            <span
-              style={{
-                fontFamily: "'Karla', sans-serif",
-                fontSize: "0.8125rem",
-                fontWeight: 600,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "rgba(196,98,45,0.9)",
-              }}
-            >
+            <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#C4622D", display: "inline-block", flexShrink: 0 }} />
+            <span style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "0.75rem",
+              fontWeight: 500,
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "rgba(196,98,45,0.85)",
+            }}>
               Lebanese Desserts · Beirut
             </span>
           </motion.div>
 
-          {/* Headline */}
-          <h1
-            style={{
-              fontFamily: "'Playfair Display SC', serif",
-              fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
-              fontWeight: 700,
-              lineHeight: 1.1,
-              color: "#FBF5EC",
-              marginBottom: "1.75rem",
-            }}
-          >
-            {words.map((word, i) => (
+          <h1 style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontSize: "clamp(3rem, 5.5vw, 5.2rem)",
+            fontWeight: 600,
+            lineHeight: 1.05,
+            color: "#FBF5EC",
+            marginBottom: "1.75rem",
+            letterSpacing: "-0.01em",
+          }}>
+            {["Every", "Spoon", "Hits a", "New Layer"].map((line, i) => (
               <motion.span
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.2 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                style={{ display: "inline-block", marginRight: "0.3em" }}
+                transition={{ duration: 0.6, delay: 0.2 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                style={{
+                  display: "block",
+                  color: line === "New Layer" ? "#C4622D" : "#FBF5EC",
+                  fontStyle: line === "New Layer" ? "italic" : "normal",
+                  fontWeight: line === "New Layer" ? 500 : 600,
+                }}
               >
-                {word === "New" ? (
-                  <span style={{ color: "#C4622D", fontStyle: "italic", fontFamily: "'Playfair Display', serif" }}>
-                    {word}
-                  </span>
-                ) : (
-                  word
-                )}
+                {line}
               </motion.span>
             ))}
           </h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
+            transition={{ duration: 0.6, delay: 0.65 }}
             style={{
-              fontFamily: "'Karla', sans-serif",
-              fontSize: "1.125rem",
-              color: "rgba(251,245,236,0.55)",
-              lineHeight: 1.75,
-              maxWidth: "440px",
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "1.0625rem",
+              color: "rgba(251,245,236,0.5)",
+              lineHeight: 1.8,
+              maxWidth: "400px",
               marginBottom: "2.5rem",
+              fontWeight: 300,
             }}
           >
-            Handcrafted tiramisu, cheesecakes, and Bavarian creams — served in beautiful clear boxes. Made with love in Lebanon.
+            Handcrafted tiramisu, cheesecakes &amp; Bavarian creams in beautiful clear boxes. Made fresh in Lebanon.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.05 }}
-            style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}
+            transition={{ duration: 0.55, delay: 0.8 }}
+            style={{ display: "flex", gap: "0.875rem", flexWrap: "wrap", alignItems: "center" }}
           >
-            <a href="#menu" className="btn-lotus">
-              Explore Menu
-            </a>
+            <a href="#menu" className="btn-lotus">Order Now</a>
             <a
               href="https://www.instagram.com/Cremi_lb"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline"
-              style={{ borderColor: "rgba(251,245,236,0.18)", color: "rgba(251,245,236,0.75)" }}
+              style={{ borderColor: "rgba(251,245,236,0.15)", color: "rgba(251,245,236,0.6)" }}
             >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" />
                 <circle cx="12" cy="12" r="4" />
                 <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
@@ -918,41 +902,38 @@ function Hero() {
             </a>
           </motion.div>
 
-          {/* Stats */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.3 }}
+            transition={{ duration: 0.6, delay: 1.1 }}
             style={{
               display: "flex",
-              gap: "2.5rem",
-              marginTop: "3rem",
+              gap: "3rem",
+              marginTop: "3.5rem",
               paddingTop: "2rem",
-              borderTop: "1px solid rgba(251,245,236,0.07)",
+              borderTop: "1px solid rgba(251,245,236,0.06)",
             }}
           >
-            {[["10+", "Flavours"], ["3", "Sizes"], ["LB", "Lebanon"]].map(([val, label]) => (
+            {[["10+", "Flavours"], ["3", "Box sizes"], ["LB", "Lebanon"]].map(([val, label]) => (
               <div key={label}>
-                <div
-                  style={{
-                    fontFamily: "'Playfair Display SC', serif",
-                    fontSize: "1.75rem",
-                    color: "#C4622D",
-                    lineHeight: 1,
-                    marginBottom: "0.25rem",
-                  }}
-                >
+                <div style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontSize: "2rem",
+                  fontWeight: 600,
+                  color: "#C4622D",
+                  lineHeight: 1,
+                  marginBottom: "0.2rem",
+                }}>
                   {val}
                 </div>
-                <div
-                  style={{
-                    fontFamily: "'Karla', sans-serif",
-                    fontSize: "0.75rem",
-                    color: "rgba(251,245,236,0.38)",
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                  }}
-                >
+                <div style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: "0.7rem",
+                  color: "rgba(251,245,236,0.3)",
+                  letterSpacing: "0.14em",
+                  textTransform: "uppercase",
+                  fontWeight: 400,
+                }}>
                   {label}
                 </div>
               </div>
@@ -960,85 +941,122 @@ function Hero() {
           </motion.div>
         </div>
 
-        {/* Right: 3D Box — full height canvas, no wrapper glow blobs */}
-        <div
+        {/* ── Right: Video ── */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           style={{ position: "relative" }}
         >
-          <div
-            style={{
-              position: "relative",
-              zIndex: 1,
-              height: "580px",
-            }}
-          >
-            <CremiBox3D />
-          </div>
-
-          {/* Product detail card — no emoji */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 1.5 }}
-            style={{
+          {/* Video container with rounded crop */}
+          <div style={{
+            position: "relative",
+            borderRadius: "20px",
+            overflow: "hidden",
+            aspectRatio: "4/3",
+            boxShadow: "0 50px 120px rgba(0,0,0,0.7), 0 0 0 1px rgba(157,94,58,0.12)",
+          }}>
+            {/* Watermark cover — exact bg color sampled from video */}
+            <div style={{
               position: "absolute",
-              bottom: "60px",
-              right: "-10px",
-              background: "rgba(20,8,4,0.85)",
-              border: "1px solid rgba(196,98,45,0.25)",
-              backdropFilter: "blur(12px)",
-              borderRadius: "14px",
-              padding: "0.85rem 1.25rem",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.85rem",
-            }}
-          >
-            <div
+              bottom: 0,
+              right: 0,
+              width: "90px",
+              height: "70px",
+              background: "linear-gradient(135deg, transparent 0%, #9d5e39 55%)",
+              zIndex: 10,
+              pointerEvents: "none",
+            }} />
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
               style={{
-                width: "36px",
-                height: "36px",
-                borderRadius: "10px",
-                background: "linear-gradient(135deg, #C4622D, #C4871F)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center",
+                display: "block",
               }}
             >
-              <div style={{ width: "14px", height: "14px", borderRadius: "50%", background: "#FBF5EC", opacity: 0.9 }} />
+              <source src="/hero-box.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          {/* Floating badge — top left of video */}
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 1.2 }}
+            style={{
+              position: "absolute",
+              top: "-14px",
+              left: "20px",
+              background: "rgba(13,7,4,0.9)",
+              border: "1px solid rgba(196,98,45,0.2)",
+              backdropFilter: "blur(16px)",
+              borderRadius: "10px",
+              padding: "0.6rem 1rem",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.6rem",
+            }}
+          >
+            <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#C4622D", flexShrink: 0 }} />
+            <span style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "0.75rem",
+              fontWeight: 500,
+              color: "rgba(251,245,236,0.8)",
+              letterSpacing: "0.04em",
+            }}>
+              Fresh daily · Order via DM
+            </span>
+          </motion.div>
+
+          {/* Price badge — bottom left */}
+          <motion.div
+            initial={{ opacity: 0, x: -16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.55, delay: 1.4 }}
+            style={{
+              position: "absolute",
+              bottom: "20px",
+              left: "-16px",
+              background: "#C4622D",
+              borderRadius: "10px",
+              padding: "0.6rem 1.1rem",
+            }}
+          >
+            <div style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: "1.5rem",
+              fontWeight: 600,
+              color: "#FBF5EC",
+              lineHeight: 1,
+            }}>
+              From $4
             </div>
-            <div>
-              <div
-                style={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontWeight: 700,
-                  fontSize: "0.875rem",
-                  color: "#FBF5EC",
-                }}
-              >
-                Lotus Cheesecake
-              </div>
-              <div
-                style={{
-                  fontFamily: "'Karla', sans-serif",
-                  fontSize: "0.8rem",
-                  color: "#C4622D",
-                  fontWeight: 600,
-                  letterSpacing: "0.04em",
-                }}
-              >
-                From $6 / box
-              </div>
+            <div style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "0.7rem",
+              color: "rgba(251,245,236,0.75)",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              fontWeight: 400,
+            }}>
+              Per box
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
 
-      {/* Scroll hint */}
+      {/* Scroll cue */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2 }}
+        transition={{ duration: 1, delay: 1.8 }}
         style={{
           position: "absolute",
           bottom: "2rem",
@@ -1047,24 +1065,22 @@ function Hero() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: "0.4rem",
+          gap: "0.35rem",
         }}
       >
-        <span
-          style={{
-            fontFamily: "'Karla', sans-serif",
-            fontSize: "0.7rem",
-            letterSpacing: "0.24em",
-            textTransform: "uppercase",
-            color: "rgba(251,245,236,0.25)",
-          }}
-        >
+        <span style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: "0.65rem",
+          letterSpacing: "0.28em",
+          textTransform: "uppercase",
+          color: "rgba(251,245,236,0.2)",
+        }}>
           Scroll
         </span>
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
-          style={{ color: "rgba(196,98,45,0.4)", fontSize: "1rem", lineHeight: 1 }}
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+          style={{ color: "rgba(196,98,45,0.35)", fontSize: "0.9rem" }}
         >
           ↓
         </motion.div>
@@ -1072,6 +1088,8 @@ function Hero() {
     </section>
   );
 }
+
+
 
 // ─── Our Story ────────────────────────────────────────────────────────────────
 
@@ -1177,7 +1195,7 @@ function OurStory() {
                 >
                   <div
                     style={{
-                      fontFamily: "'Playfair Display SC', serif",
+                      fontFamily: "'Cormorant Garamond', serif",
                       fontSize: "4rem",
                       color: "#2C1810",
                       opacity: 0.15,
@@ -1202,10 +1220,10 @@ function OurStory() {
                   boxShadow: "0 8px 32px rgba(44,24,16,0.25)",
                 }}
               >
-                <div style={{ fontFamily: "'Karla', sans-serif", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#C4622D", marginBottom: "0.25rem" }}>
+                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "#C4622D", marginBottom: "0.25rem" }}>
                   Since
                 </div>
-                <div style={{ fontFamily: "'Playfair Display SC', serif", fontSize: "1.5rem", fontWeight: 700 }}>
+                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 700 }}>
                   2023
                 </div>
               </div>
@@ -1218,7 +1236,7 @@ function OurStory() {
               <div
                 style={{
                   fontSize: "0.8125rem",
-                  fontFamily: "'Karla', sans-serif",
+                  fontFamily: "'DM Sans', sans-serif",
                   fontWeight: 700,
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
@@ -1230,7 +1248,7 @@ function OurStory() {
               </div>
               <h2
                 style={{
-                  fontFamily: "'Playfair Display SC', serif",
+                  fontFamily: "'Cormorant Garamond', serif",
                   fontSize: "clamp(2rem, 3.5vw, 3rem)",
                   fontWeight: 700,
                   color: "#2C1810",
@@ -1245,7 +1263,7 @@ function OurStory() {
             <AnimatedSection delay={0.2}>
               <p
                 style={{
-                  fontFamily: "'Karla', sans-serif",
+                  fontFamily: "'DM Sans', sans-serif",
                   fontSize: "1.0625rem",
                   color: "#3D2418",
                   opacity: 0.8,
@@ -1257,7 +1275,7 @@ function OurStory() {
               </p>
               <p
                 style={{
-                  fontFamily: "'Karla', sans-serif",
+                  fontFamily: "'DM Sans', sans-serif",
                   fontSize: "1.0625rem",
                   color: "#3D2418",
                   opacity: 0.8,
@@ -1271,9 +1289,9 @@ function OurStory() {
               {/* Values */}
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                 {[
-                  { icon: "🫙", label: "Made Fresh", desc: "Every order crafted on demand" },
-                  { icon: "📦", label: "Clear Box Presentation", desc: "Beautiful inside & out" },
-                  { icon: "🇱🇧", label: "Lebanese Heart", desc: "Local ingredients, global flavors" },
+                  { label: "Made Fresh", desc: "Every order crafted on demand" },
+                  { label: "Presented Beautifully", desc: "Beautiful inside & out" },
+                  { label: "Lebanese Heart", desc: "Local ingredients, global flavors" },
                 ].map((v) => (
                   <div key={v.label} style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
                     <div
@@ -1289,13 +1307,13 @@ function OurStory() {
                         flexShrink: 0,
                       }}
                     >
-                      {v.icon}
+                      
                     </div>
                     <div>
-                      <div style={{ fontFamily: "'Karla', sans-serif", fontWeight: 700, fontSize: "0.9375rem", color: "#2C1810" }}>
+                      <div style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: "0.9375rem", color: "#2C1810" }}>
                         {v.label}
                       </div>
-                      <div style={{ fontFamily: "'Karla', sans-serif", fontSize: "0.875rem", color: "#8B6B55" }}>
+                      <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem", color: "#8B6B55" }}>
                         {v.desc}
                       </div>
                     </div>
@@ -1345,7 +1363,7 @@ function MenuSection() {
             <div
               style={{
                 fontSize: "0.8125rem",
-                fontFamily: "'Karla', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 fontWeight: 700,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
@@ -1357,7 +1375,7 @@ function MenuSection() {
             </div>
             <h2
               style={{
-                fontFamily: "'Playfair Display SC', serif",
+                fontFamily: "'Cormorant Garamond', serif",
                 fontSize: "clamp(2rem, 4vw, 3.5rem)",
                 fontWeight: 700,
                 color: "#2C1810",
@@ -1369,7 +1387,7 @@ function MenuSection() {
             </h2>
             <p
               style={{
-                fontFamily: "'Karla', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 fontSize: "1.0625rem",
                 color: "#8B6B55",
                 maxWidth: "480px",
@@ -1412,7 +1430,7 @@ function MenuSection() {
                   style={{
                     borderRadius: "9999px",
                     padding: "0.65rem 1.5rem",
-                    fontFamily: "'Karla', sans-serif",
+                    fontFamily: "'DM Sans', sans-serif",
                     fontWeight: 600,
                     fontSize: "0.9rem",
                     letterSpacing: "0.04em",
@@ -1463,7 +1481,7 @@ function MenuSection() {
           >
             <p
               style={{
-                fontFamily: "'Karla', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 fontSize: "0.9375rem",
                 color: "#8B6B55",
               }}
@@ -1512,7 +1530,7 @@ function BoxCollections() {
             <div
               style={{
                 fontSize: "0.8125rem",
-                fontFamily: "'Karla', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 fontWeight: 700,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
@@ -1524,7 +1542,7 @@ function BoxCollections() {
             </div>
             <h2
               style={{
-                fontFamily: "'Playfair Display SC', serif",
+                fontFamily: "'Cormorant Garamond', serif",
                 fontSize: "clamp(2rem, 4vw, 3.5rem)",
                 fontWeight: 700,
                 color: "#FBF5EC",
@@ -1536,7 +1554,7 @@ function BoxCollections() {
             </h2>
             <p
               style={{
-                fontFamily: "'Karla', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 fontSize: "1.0625rem",
                 color: "rgba(251,245,236,0.55)",
                 maxWidth: "480px",
@@ -1611,7 +1629,7 @@ function OrderCTA() {
           <div
             style={{
               fontSize: "0.8125rem",
-              fontFamily: "'Karla', sans-serif",
+              fontFamily: "'DM Sans', sans-serif",
               fontWeight: 700,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
@@ -1623,7 +1641,7 @@ function OrderCTA() {
           </div>
           <h2
             style={{
-              fontFamily: "'Playfair Display SC', serif",
+              fontFamily: "'Cormorant Garamond', serif",
               fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
               fontWeight: 700,
               color: "#2C1810",
@@ -1635,7 +1653,7 @@ function OrderCTA() {
           </h2>
           <p
             style={{
-              fontFamily: "'Karla', sans-serif",
+              fontFamily: "'DM Sans', sans-serif",
               fontSize: "1.125rem",
               color: "#8B6B55",
               lineHeight: 1.75,
@@ -1692,7 +1710,7 @@ function OrderCTA() {
           >
             <p
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Cormorant Garamond', serif",
                 fontStyle: "italic",
                 fontSize: "1.5rem",
                 color: "#C4622D",
@@ -1734,7 +1752,7 @@ function Footer() {
         <a
           href="#"
           style={{
-            fontFamily: "'Playfair Display SC', serif",
+            fontFamily: "'Cormorant Garamond', serif",
             fontWeight: 700,
             fontSize: "2rem",
             color: "#C4622D",
@@ -1747,7 +1765,7 @@ function Footer() {
 
         <p
           style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Cormorant Garamond', serif",
             fontStyle: "italic",
             fontSize: "0.9375rem",
             color: "rgba(251,245,236,0.45)",
@@ -1765,7 +1783,7 @@ function Footer() {
             display: "inline-flex",
             alignItems: "center",
             gap: "0.5rem",
-            fontFamily: "'Karla', sans-serif",
+            fontFamily: "'DM Sans', sans-serif",
             fontSize: "0.875rem",
             fontWeight: 600,
             color: "#C4622D",
@@ -1792,7 +1810,7 @@ function Footer() {
 
         <p
           style={{
-            fontFamily: "'Karla', sans-serif",
+            fontFamily: "'DM Sans', sans-serif",
             fontSize: "0.8125rem",
             color: "rgba(251,245,236,0.3)",
             letterSpacing: "0.06em",
