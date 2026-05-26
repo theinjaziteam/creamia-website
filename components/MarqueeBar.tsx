@@ -1,4 +1,5 @@
 "use client";
+
 export default function MarqueeBar() {
   const items = [
     "Tiramisu Classic",
@@ -9,18 +10,41 @@ export default function MarqueeBar() {
     "Blueberry Cheesecake",
     "Raspberry Cheesecake",
     "Tiramisu Brownie",
-    "Dream Cake",
     "Halawa Cream",
+    "Dream Cake",
+    "Halawet el Riz",
+    "Moufataka",
   ];
+
   return (
-    <div className="overflow-hidden py-3" style={{ background: "#2C1810", borderTop: "1px solid rgba(196,98,45,0.3)", borderBottom: "1px solid rgba(196,98,45,0.3)" }}>
-      <div className="marquee-track flex gap-8 whitespace-nowrap" style={{ width: "max-content" }}>
+    <div
+      style={{
+        overflow: "hidden",
+        padding: "14px 0",
+        background: "#C4622D",
+        borderTop: "1px solid rgba(255,255,255,0.15)",
+        borderBottom: "1px solid rgba(255,255,255,0.15)",
+      }}
+    >
+      <div
+        className="marquee-track"
+        style={{ display: "flex", gap: "2.5rem", whiteSpace: "nowrap", width: "max-content" }}
+      >
         {[...items, ...items].map((item, i) => (
-          <span key={i} className="flex items-center gap-8 shrink-0">
-            <span style={{ fontFamily: "'Karla', sans-serif", fontSize: "0.8125rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(251,245,236,0.6)" }}>
+          <span key={i} style={{ display: "flex", alignItems: "center", gap: "2.5rem", flexShrink: 0 }}>
+            <span
+              style={{
+                fontFamily: "'Space Mono', monospace",
+                fontSize: "0.6875rem",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.92)",
+                fontWeight: 400,
+              }}
+            >
               {item}
             </span>
-            <span style={{ color: "#C4622D", fontSize: "0.6rem" }}>◆</span>
+            <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.45rem" }}>◆</span>
           </span>
         ))}
       </div>

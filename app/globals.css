@@ -1,121 +1,303 @@
-@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700;800;900&family=Saira+Extra+Condensed:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=IBM+Plex+Mono:wght@300;400;500&display=swap');
+/* ─── Fonts ──────────────────────────────────────────────────────────────────
+   The Verge-inspired stack adapted for Cremia
+   • Bebas Neue   → Manuka substitute  (massive display, 60-120px only)
+   • DM Sans      → PolySans substitute (UI, body, secondary headlines)
+   • Space Mono   → PolySans Mono (ALL-CAPS labels, kickers, timestamps)
+   • Playfair Display → FK Roman (editorial serif pull-quotes)
+   • Dancing Script   → Cremi cursive brand identity
+──────────────────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Dancing+Script:wght@600;700&display=swap');
 @import "tailwindcss";
 
+/* ─── Token System ───────────────────────────────────────────────────────────
+   Cremia's warm palette — replaces The Verge's dark-mint with
+   dark-chocolate + terracotta + cream
+──────────────────────────────────────────────────────────────────────────── */
 :root {
-  --lotus: #C4622D;
-  --lotus-deep: #9E3E10;
-  --lotus-light: #E8835A;
-  --lotus-pale: #F3D0B8;
-  --cream: #FBF5EC;
-  --cream-dark: #F2E8D5;
-  --espresso: #0D0704;
-  --espresso-mid: #1E0C06;
-  --brown: #8B5E3C;
-  --caramel: #C4871F;
-  --border-warm: #E8D9C0;
-  --text-muted: #8B6B55;
+  /* Surfaces (dark → mid → light) */
+  --canvas:        #1A0B04;   /* deepest background, like espresso grounds */
+  --canvas-mid:    #2D1506;   /* main dark surface (The Verge's #131313) */
+  --surface:       #3D2010;   /* secondary card surface  (#2d2d2d equiv) */
+  --surface-warm:  #5C3420;   /* elevated surface */
+
+  /* Brand accents */
+  --lotus:         #C4622D;   /* primary CTA — the "Jelly Mint" of Cremia */
+  --lotus-light:   #E8835A;   /* hover / lighter lotus */
+  --lotus-deep:    #8B3E10;   /* pressed lotus */
+  --lotus-pale:    #F3D0B8;   /* lotus tint for light sections */
+  --gold:          #C9A87C;   /* sandy tan accent — palette color 1 */
+  --caramel:       #B07040;   /* warm caramel mid-tone */
+
+  /* Neutrals & Text */
+  --cream:         #EDEADC;   /* primary text (Hazard White equiv) */
+  --cream-warm:    #FBF5EC;   /* softer cream for cards */
+  --taupe:         #C8C0B0;   /* secondary text (#949494 equiv) */
+  --muted:         #8B7B68;   /* muted / metadata */
+  --border-warm:   rgba(196,98,45,0.2);
+  --border-cream:  rgba(237,234,220,0.15);
+
+  /* Palette from reference image */
+  --p-sand:        #C9A87C;   /* column 1 */
+  --p-brown:       #7A5C44;   /* column 2 */
+  --p-cream:       #EDEADC;   /* column 3 */
+  --p-taupe:       #C8C0B0;   /* column 4 */
+  --p-choco:       #2D1506;   /* column 5 */
 }
 
 @theme inline {
-  --color-lotus: var(--lotus);
-  --color-cream: var(--cream);
-  --color-espresso: var(--espresso);
-  --color-caramel: var(--caramel);
-  --color-brown: var(--brown);
-  --font-display: 'Saira Extra Condensed', sans-serif;
-  --font-condensed: 'Saira Condensed', sans-serif;
-  --font-serif: 'Cormorant Garamond', serif;
-  --font-mono: 'IBM Plex Mono', monospace;
-  --font-body: 'Saira Condensed', sans-serif;
+  --color-lotus:   var(--lotus);
+  --color-canvas:  var(--canvas-mid);
+  --color-cream:   var(--cream);
+  --color-gold:    var(--gold);
+  --color-surface: var(--surface);
+
+  /* The Verge typography tokens */
+  --font-display:  'Bebas Neue', Impact, 'Arial Black', sans-serif;
+  --font-ui:       'DM Sans', 'Space Grotesk', Helvetica, sans-serif;
+  --font-mono:     'Space Mono', 'IBM Plex Mono', 'Courier New', monospace;
+  --font-serif:    'Playfair Display', Georgia, serif;
+  --font-brand:    'Dancing Script', cursive;
 }
 
+/* ─── Reset ──────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { background: var(--cream); color: var(--espresso); overflow-x: hidden; scroll-behavior: smooth; }
+html {
+  background: var(--canvas-mid);
+  color: var(--cream);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: 'Saira Condensed', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
-  line-height: 1.7;
-  background: var(--cream);
-  color: var(--espresso);
+  line-height: 1.65;
+  background: var(--canvas-mid);
+  color: var(--cream);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-::selection { background: #C4622D33; color: var(--espresso); }
+::selection { background: rgba(196,98,45,0.35); color: var(--cream); }
 
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@keyframes floatY { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-14px); } }
-@keyframes fadeUp { from { opacity:0; transform:translateY(32px); } to { opacity:1; transform:translateY(0); } }
-@keyframes pulseGlow {
-  0%,100% { box-shadow: 0 0 30px rgba(196,98,45,0.3); }
-  50% { box-shadow: 0 0 60px rgba(196,98,45,0.6); }
+/* ─── Keyframes ──────────────────────────────────────────────────────────── */
+@keyframes marquee          { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes floatY           { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-18px); } }
+@keyframes fadeUp           { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+@keyframes lotusZoom {
+  0%   { transform: perspective(800px) translateZ(-600px) rotate3d(1,1,0,30deg) scale(0.3); opacity: 0; }
+  40%  { opacity: 1; }
+  70%  { transform: perspective(800px) translateZ(40px)  rotate3d(0,1,0,-8deg)  scale(1.04); }
+  100% { transform: perspective(800px) translateZ(0px)   rotate3d(0,1,0,0deg)   scale(1); }
+}
+@keyframes lotusHover {
+  0%,100% { transform: perspective(800px) translateZ(0) rotate3d(0,1,0,0deg)   translateY(0); }
+  50%      { transform: perspective(800px) translateZ(20px) rotate3d(0,1,0,6deg)  translateY(-10px); }
+}
+@keyframes milkRing {
+  0%   { transform: translate(-50%,-50%) scale(0);   opacity: 0.9; }
+  60%  { opacity: 0.5; }
+  100% { transform: translate(-50%,-50%) scale(1);   opacity: 0; }
+}
+@keyframes milkDrop {
+  0%   { transform: translateY(0)    scaleY(1);    opacity: 1;   }
+  60%  { transform: translateY(-90px) scaleY(1.4); opacity: 0.85; }
+  100% { transform: translateY(-170px) scaleY(0.3); opacity: 0;   }
+}
+@keyframes milkSplashWave {
+  0%   { clip-path: ellipse(40% 20% at 50% 100%); opacity:0.9; }
+  50%  { clip-path: ellipse(60% 35% at 50% 90%);  opacity:0.7; }
+  100% { clip-path: ellipse(80% 0%  at 50% 100%); opacity:0; }
+}
+@keyframes biscuitSpin {
+  from { transform: rotateY(0deg) rotateX(5deg); }
+  to   { transform: rotateY(360deg) rotateX(5deg); }
 }
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; } 50% { opacity: 0.5; }
+}
+@keyframes scaleIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
 }
 
-.marquee-track { animation: marquee 28s linear infinite; }
-.float-anim { animation: floatY 6s ease-in-out infinite; }
+/* ─── Typography Utilities (The Verge style) ─────────────────────────────── */
 
-.card-hover {
-  transition: transform 0.35s cubic-bezier(0.23,1,0.32,1), box-shadow 0.35s ease;
-}
-.card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 60px rgba(13,7,4,0.18), 0 8px 20px rgba(196,98,45,0.12);
+/* DISPLAY: Bebas Neue 60-120px, line-height 0.90, tight as nails */
+.type-display {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-weight: 400; /* Bebas is one-weight */
+  line-height: 0.90;
+  letter-spacing: 0.02em;
 }
 
-.btn-lotus {
+/* KICKER: Space Mono, ALL CAPS, wide tracking — The Verge signature */
+.type-kicker {
+  font-family: 'Space Mono', monospace;
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* WHISPER: DM Sans weight-300, 19px, 1.9px tracking — fashion-whisper */
+.type-whisper {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1.1875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* UI LABEL: DM Sans bold uppercase */
+.type-label {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* EDITORIAL: Playfair Display italic */
+.type-editorial {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ─── Motion & Float ─────────────────────────────────────────────────────── */
+.marquee-track  { animation: marquee 32s linear infinite; }
+.float-anim     { animation: floatY 5s ease-in-out infinite; }
+
+/* ─── Buttons ────────────────────────────────────────────────────────────── */
+/* Primary — "Jelly Mint" is Lotus Terracotta here */
+.btn-primary {
   background: var(--lotus);
   color: #fff;
-  border-radius: 9999px;
-  padding: 0.875rem 2.25rem;
-  font-family: 'Saira Condensed', sans-serif;
-  font-weight: 600;
-  font-size: 0.875rem;
-  letter-spacing: 0.08em;
+  border-radius: 24px;
+  padding: 12px 28px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  cursor: pointer;
   border: none;
-  transition: all 0.3s ease;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
+  transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  white-space: nowrap;
 }
-.btn-lotus:hover {
+.btn-primary:hover {
+  background: var(--lotus-light);
+  box-shadow: 0 0 0 1px rgba(200,200,200,0.25);
+  transform: translateY(-1px);
+}
+.btn-primary:active {
   background: var(--lotus-deep);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(196,98,45,0.4);
+  opacity: 0.8;
 }
 
+/* Outline — thin cream border */
 .btn-outline {
   background: transparent;
-  color: var(--espresso);
-  border: 1.5px solid var(--border-warm);
-  border-radius: 9999px;
-  padding: 0.875rem 2.25rem;
-  font-family: 'Saira Condensed', sans-serif;
-  font-weight: 600;
-  font-size: 0.875rem;
-  letter-spacing: 0.08em;
+  color: var(--cream);
+  border: 1px solid var(--border-cream);
+  border-radius: 40px;
+  padding: 12px 28px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
+  transition: border-color 150ms ease, color 150ms ease;
 }
 .btn-outline:hover {
   border-color: var(--lotus);
   color: var(--lotus);
-  transform: translateY(-2px);
 }
 
+/* ─── Cards — The Verge flat-border approach ─────────────────────────────── */
+.card-flat {
+  border: 1px solid var(--border-cream);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: border-color 150ms ease;
+}
+.card-flat:hover { border-color: var(--lotus); }
+
+.card-hover {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.23,1,0.32,1), border-color 150ms ease;
+  border: 1px solid transparent;
+}
+.card-hover:hover {
+  transform: translateY(-5px);
+  border-color: rgba(196,98,45,0.4);
+}
+
+/* ─── Video wrapper — clip bottom for watermark removal ─────────────────── */
+.video-mask {
+  clip-path: inset(0 0 8% 0);
+  transform: scale(1.09) translateY(-4%);
+  transform-origin: center top;
+}
+
+/* ─── 3D Biscuit CSS fallback ────────────────────────────────────────────── */
+.biscuit-3d-wrap {
+  perspective: 900px;
+  perspective-origin: 50% 60%;
+}
+.biscuit-zoom {
+  animation: lotusZoom 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.biscuit-idle {
+  animation: lotusHover 5s ease-in-out infinite;
+}
+
+/* ─── Milk Splash ────────────────────────────────────────────────────────── */
+.milk-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.7);
+  pointer-events: none;
+}
+.milk-drop {
+  position: absolute;
+  background: rgba(255,255,255,0.85);
+  border-radius: 50% 50% 40% 40%;
+  pointer-events: none;
+}
+
+/* ─── Responsive helpers ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero-split { grid-template-columns: 1fr !important; }
+  .story-split { grid-template-columns: 1fr !important; }
+  .hide-mobile { display: none !important; }
+}
+@media (min-width: 769px) {
+  .hide-desktop { display: none !important; }
+  .md-flex { display: flex !important; }
+}
+@media (max-width: 768px) {
+  .md-flex { display: none !important; }
+}
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
