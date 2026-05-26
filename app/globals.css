@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display+SC:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -8,8 +8,8 @@
   --lotus-pale: #F3D0B8;
   --cream: #FBF5EC;
   --cream-dark: #F2E8D5;
-  --espresso: #2C1810;
-  --espresso-mid: #3D2418;
+  --espresso: #0D0704;
+  --espresso-mid: #1E0C06;
   --brown: #8B5E3C;
   --caramel: #C4871F;
   --border-warm: #E8D9C0;
@@ -22,9 +22,9 @@
   --color-espresso: var(--espresso);
   --color-caramel: var(--caramel);
   --color-brown: var(--brown);
-  --font-display: 'Playfair Display SC', serif;
-  --font-serif: 'Playfair Display', serif;
-  --font-body: 'Karla', sans-serif;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,9 +32,9 @@
 html { background: var(--cream); color: var(--espresso); overflow-x: hidden; scroll-behavior: smooth; }
 
 body {
-  font-family: 'Karla', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.7;
   background: var(--cream);
   color: var(--espresso);
   -webkit-font-smoothing: antialiased;
@@ -44,28 +44,26 @@ body {
 ::selection { background: #C4622D33; color: var(--espresso); }
 
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@keyframes floatY { 0%,100% { transform: translateY(0px) rotate(-1deg); } 50% { transform: translateY(-18px) rotate(1deg); } }
+@keyframes floatY { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-14px); } }
 @keyframes fadeUp { from { opacity:0; transform:translateY(32px); } to { opacity:1; transform:translateY(0); } }
 @keyframes pulseGlow {
   0%,100% { box-shadow: 0 0 30px rgba(196,98,45,0.3); }
   50% { box-shadow: 0 0 60px rgba(196,98,45,0.6); }
 }
-@keyframes blobAnim {
-  0%,100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
-.marquee-track { animation: marquee 24s linear infinite; }
-.float-anim { animation: floatY 5s ease-in-out infinite; }
-.blob-anim { animation: blobAnim 8s ease-in-out infinite; }
+.marquee-track { animation: marquee 28s linear infinite; }
+.float-anim { animation: floatY 6s ease-in-out infinite; }
 
-.card-3d {
-  transform-style: preserve-3d;
-  transition: transform 0.4s cubic-bezier(0.23,1,0.32,1), box-shadow 0.4s ease;
+.card-hover {
+  transition: transform 0.35s cubic-bezier(0.23,1,0.32,1), box-shadow 0.35s ease;
 }
-.card-3d:hover {
-  transform: perspective(1000px) rotateX(-5deg) rotateY(8deg) translateY(-8px) scale(1.02);
-  box-shadow: 20px 30px 60px rgba(44,24,16,0.22), 0 10px 20px rgba(196,98,45,0.18);
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(13,7,4,0.18), 0 8px 20px rgba(196,98,45,0.12);
 }
 
 .btn-lotus {
@@ -73,10 +71,10 @@ body {
   color: #fff;
   border-radius: 9999px;
   padding: 0.875rem 2.25rem;
-  font-family: 'Karla', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 600;
-  font-size: 0.9375rem;
-  letter-spacing: 0.06em;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
   border: none;
@@ -84,29 +82,31 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  text-decoration: none;
 }
 .btn-lotus:hover {
   background: var(--lotus-deep);
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(196,98,45,0.45);
+  box-shadow: 0 12px 40px rgba(196,98,45,0.4);
 }
 
 .btn-outline {
   background: transparent;
   color: var(--espresso);
-  border: 2px solid var(--border-warm);
+  border: 1.5px solid var(--border-warm);
   border-radius: 9999px;
   padding: 0.875rem 2.25rem;
-  font-family: 'Karla', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 600;
-  font-size: 0.9375rem;
-  letter-spacing: 0.06em;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  text-decoration: none;
 }
 .btn-outline:hover {
   border-color: var(--lotus);
