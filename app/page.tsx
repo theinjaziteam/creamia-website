@@ -778,7 +778,7 @@ function Hero() {
       id="hero"
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #B5511F 0%, #B5511F 45%, #C4913A 100%)",
+        background: "radial-gradient(ellipse at 65% 50%, #2A1108 0%, #140804 55%, #0A0402 100%)",
         display: "flex",
         alignItems: "center",
         position: "relative",
@@ -786,56 +786,20 @@ function Hero() {
         paddingTop: "72px",
       }}
     >
-      {/* Background texture blobs */}
+      {/* Subtle warm vignette glow behind where the box sits */}
       <div
         style={{
           position: "absolute",
-          top: "10%",
-          left: "-10%",
-          width: "500px",
-          height: "500px",
+          top: "50%",
+          right: "8%",
+          transform: "translateY(-50%)",
+          width: "600px",
+          height: "600px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(196,98,45,0.12) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(196,98,45,0.14) 0%, rgba(196,135,31,0.06) 45%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
-      <div
-        style={{
-          position: "absolute",
-          bottom: "5%",
-          right: "5%",
-          width: "400px",
-          height: "400px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(196,135,31,0.1) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
-
-      {/* Floating food emojis */}
-      {[
-        { emoji: "🍰", top: "15%", left: "5%", delay: "0s", size: "2rem" },
-        { emoji: "☕", top: "70%", left: "8%", delay: "1.2s", size: "1.5rem" },
-        { emoji: "✨", top: "25%", right: "48%", delay: "0.6s", size: "1.25rem" },
-        { emoji: "🍫", top: "80%", right: "52%", delay: "1.8s", size: "1.5rem" },
-      ].map((item, i) => (
-        <div
-          key={i}
-          className="float-anim"
-          style={{
-            position: "absolute",
-            top: item.top,
-            left: "left" in item ? item.left : undefined,
-            right: "right" in item ? (item as { right?: string }).right : undefined,
-            fontSize: item.size,
-            opacity: 0.35,
-            animationDelay: item.delay,
-            pointerEvents: "none",
-          }}
-        >
-          {item.emoji}
-        </div>
-      ))}
 
       <div
         style={{
@@ -844,7 +808,7 @@ function Hero() {
           padding: "4rem 2rem",
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: "3rem",
+          gap: "2rem",
           alignItems: "center",
           width: "100%",
         }}
@@ -861,22 +825,22 @@ function Hero() {
               display: "inline-flex",
               alignItems: "center",
               gap: "0.5rem",
-              background: "rgba(196,98,45,0.2)",
-              border: "1px solid rgba(196,98,45,0.35)",
+              background: "rgba(196,98,45,0.12)",
+              border: "1px solid rgba(196,98,45,0.28)",
               borderRadius: "9999px",
               padding: "0.35rem 1rem",
               marginBottom: "2rem",
             }}
           >
-            <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#C4622D", display: "inline-block" }} />
+            <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#C4622D", display: "inline-block" }} />
             <span
               style={{
                 fontFamily: "'Karla', sans-serif",
                 fontSize: "0.8125rem",
                 fontWeight: 600,
-                letterSpacing: "0.16em",
+                letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "#E8835A",
+                color: "rgba(196,98,45,0.9)",
               }}
             >
               Lebanese Desserts · Beirut
@@ -920,9 +884,9 @@ function Hero() {
             style={{
               fontFamily: "'Karla', sans-serif",
               fontSize: "1.125rem",
-              color: "rgba(251,245,236,0.65)",
-              lineHeight: 1.7,
-              maxWidth: "460px",
+              color: "rgba(251,245,236,0.55)",
+              lineHeight: 1.75,
+              maxWidth: "440px",
               marginBottom: "2.5rem",
             }}
           >
@@ -936,16 +900,16 @@ function Hero() {
             style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}
           >
             <a href="#menu" className="btn-lotus">
-              Explore Menu ↓
+              Explore Menu
             </a>
             <a
               href="https://www.instagram.com/Cremi_lb"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline"
-              style={{ borderColor: "rgba(251,245,236,0.25)", color: "#FBF5EC" }}
+              style={{ borderColor: "rgba(251,245,236,0.18)", color: "rgba(251,245,236,0.75)" }}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" />
                 <circle cx="12" cy="12" r="4" />
                 <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
@@ -964,10 +928,10 @@ function Hero() {
               gap: "2.5rem",
               marginTop: "3rem",
               paddingTop: "2rem",
-              borderTop: "1px solid rgba(251,245,236,0.1)",
+              borderTop: "1px solid rgba(251,245,236,0.07)",
             }}
           >
-            {[["10+", "Flavors"], ["3", "Box Sizes"], ["🇱🇧", "Lebanon"]].map(([val, label]) => (
+            {[["10+", "Flavours"], ["3", "Sizes"], ["LB", "Lebanon"]].map(([val, label]) => (
               <div key={label}>
                 <div
                   style={{
@@ -983,9 +947,9 @@ function Hero() {
                 <div
                   style={{
                     fontFamily: "'Karla', sans-serif",
-                    fontSize: "0.8125rem",
-                    color: "rgba(251,245,236,0.5)",
-                    letterSpacing: "0.1em",
+                    fontSize: "0.75rem",
+                    color: "rgba(251,245,236,0.38)",
+                    letterSpacing: "0.12em",
                     textTransform: "uppercase",
                   }}
                 >
@@ -996,54 +960,37 @@ function Hero() {
           </motion.div>
         </div>
 
-        {/* Right: 3D Box */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        {/* Right: 3D Box — full height canvas, no wrapper glow blobs */}
+        <div
           style={{ position: "relative" }}
         >
-          {/* Glow blob behind box */}
-          <div
-            className="blob-anim"
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: "380px",
-              height: "380px",
-              background: "radial-gradient(ellipse, rgba(196,98,45,0.28) 0%, rgba(196,135,31,0.12) 50%, transparent 70%)",
-              pointerEvents: "none",
-              zIndex: 0,
-            }}
-          />
           <div
             style={{
               position: "relative",
               zIndex: 1,
-              height: "500px",
+              height: "580px",
             }}
           >
             <CremiBox3D />
           </div>
 
-          {/* Floating product label badge */}
+          {/* Product detail card — no emoji */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 1.4 }}
+            transition={{ duration: 0.6, delay: 1.5 }}
             style={{
               position: "absolute",
               bottom: "60px",
               right: "-10px",
-              background: "#FBF5EC",
-              borderRadius: "16px",
-              padding: "0.75rem 1.25rem",
-              boxShadow: "0 8px 32px rgba(44,24,16,0.3)",
+              background: "rgba(20,8,4,0.85)",
+              border: "1px solid rgba(196,98,45,0.25)",
+              backdropFilter: "blur(12px)",
+              borderRadius: "14px",
+              padding: "0.85rem 1.25rem",
               display: "flex",
               alignItems: "center",
-              gap: "0.75rem",
+              gap: "0.85rem",
             }}
           >
             <div
@@ -1051,22 +998,22 @@ function Hero() {
                 width: "36px",
                 height: "36px",
                 borderRadius: "10px",
-                background: "#C4622D",
+                background: "linear-gradient(135deg, #C4622D, #C4871F)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: "1.1rem",
+                flexShrink: 0,
               }}
             >
-              🍰
+              <div style={{ width: "14px", height: "14px", borderRadius: "50%", background: "#FBF5EC", opacity: 0.9 }} />
             </div>
             <div>
               <div
                 style={{
                   fontFamily: "'Playfair Display', serif",
                   fontWeight: 700,
-                  fontSize: "0.9rem",
-                  color: "#2C1810",
+                  fontSize: "0.875rem",
+                  color: "#FBF5EC",
                 }}
               >
                 Lotus Cheesecake
@@ -1077,13 +1024,14 @@ function Hero() {
                   fontSize: "0.8rem",
                   color: "#C4622D",
                   fontWeight: 600,
+                  letterSpacing: "0.04em",
                 }}
               >
                 From $6 / box
               </div>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll hint */}
@@ -1105,10 +1053,10 @@ function Hero() {
         <span
           style={{
             fontFamily: "'Karla', sans-serif",
-            fontSize: "0.75rem",
-            letterSpacing: "0.2em",
+            fontSize: "0.7rem",
+            letterSpacing: "0.24em",
             textTransform: "uppercase",
-            color: "rgba(251,245,236,0.35)",
+            color: "rgba(251,245,236,0.25)",
           }}
         >
           Scroll
@@ -1116,7 +1064,7 @@ function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
-          style={{ color: "rgba(196,98,45,0.5)", fontSize: "1.25rem" }}
+          style={{ color: "rgba(196,98,45,0.4)", fontSize: "1rem", lineHeight: 1 }}
         >
           ↓
         </motion.div>
