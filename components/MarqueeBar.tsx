@@ -1,10 +1,10 @@
 "use client";
 
 const items = [
-  "Tiramisu Classic", "Lotus Cheesecake", "Oreo Cheesecake",
+  "Classic Tiramisu", "Lotus Cheesecake", "Oreo Cheesecake",
   "Strawberry Mousse", "Mango Bavarian", "Blueberry Cheesecake",
-  "Raspberry Cheesecake", "Tiramisu Brownie", "Halawa Cream",
-  "Dream Cake", "Halawet el Riz", "Moufataka",
+  "Raspberry Cheesecake", "Brownie Tiramisu", "Halawa Cream",
+  "Chocolate Dubai Cake", "Halawet el Riz", "Moufataka",
 ];
 
 export default function MarqueeBar() {
