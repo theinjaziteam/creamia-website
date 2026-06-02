@@ -267,15 +267,22 @@ function Hero() {
     <section style={{ position: "relative", height: "100vh", minHeight: 600, overflow: "hidden", background: "#1a0b04" }}>
       <video autoPlay muted loop playsInline style={{
         position: "absolute", inset: 0, width: "100%",
-        height: "115%", objectFit: "cover", objectPosition: "center top",
-        transform: "translateY(-4%)",
+        height: "130%", objectFit: "cover", objectPosition: "center top",
+        transform: "translateY(-10%)",
       }}>
         <source src="/hero.mp4" type="video/mp4"/>
       </video>
 
+      {/* Solid bottom mask — covers any watermark */}
+      <div style={{
+        position: "absolute", bottom: 0, left: 0, right: 0, zIndex: 1,
+        height: "22%",
+        background: "linear-gradient(to bottom, transparent 0%, #1a0b04 65%)",
+      }}/>
+
       <div style={{
         position: "absolute", inset: 0, zIndex: 1,
-        background: "linear-gradient(to bottom, rgba(20,8,2,0.35) 0%, rgba(20,8,2,0.2) 40%, rgba(20,8,2,0.65) 85%, #1a0b04 100%)",
+        background: "linear-gradient(to bottom, rgba(20,8,2,0.35) 0%, rgba(20,8,2,0.15) 35%, rgba(20,8,2,0.55) 78%, rgba(20,8,2,0.9) 92%, #1a0b04 100%)",
       }}/>
 
       <div style={{
