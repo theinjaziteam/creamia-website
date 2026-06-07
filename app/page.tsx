@@ -50,8 +50,8 @@ const allFlavors: {
   category: "oriental" | "creamy" | "fluffy";
   image: string | null;
 }[] = [
-  { id: "moufataka",         name: "Moufataka",               desc: "Lebanese classic — rice pudding, caramel, nuts.",              boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: null },
-  { id: "kunafa",            name: "Kunafa",                  desc: "Crisp shredded pastry, sweet cheese, rosewater syrup.",        boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: null },
+  { id: "moufataka",         name: "Moufataka",               desc: "Lebanese classic — rice pudding, caramel, nuts.",              boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/moufataka.jpg" },
+  { id: "kunafa",            name: "Kunafa b Ashta",          desc: "Crisp shredded pastry, sweet cheese, rosewater syrup.",        boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/kunafa.jpg" },
   { id: "halawet-riz",       name: "Halawet el Riz",          desc: "Traditional Levantine rice cream, sweetened with rose.",        boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/halawet-el-riz.png" },
 
   { id: "tiramisu-classic",  name: "Classic Tiramisu",        desc: "Espresso-soaked ladyfingers, mascarpone cream, dark cocoa.",   boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: "/menu/classic-tiramisu.png" },
@@ -61,9 +61,9 @@ const allFlavors: {
   { id: "blueberry-cheese",  name: "Blueberry Cheesecake",    desc: "Tart blueberry compote swirled into creamy cheesecake.",       boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: "/menu/blueberry-cheesecake.png" },
   { id: "raspberry-cheese",  name: "Raspberry Cheesecake",    desc: "Tangy raspberry coulis ribboned through silky cheesecake.",    boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: "/menu/raspberry-cheesecake.png" },
   { id: "choc-dubai",        name: "Chocolate Dubai Cake",    desc: "Rich chocolate layered with crispy kataifi and pistachio.",    boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: "/menu/chocolate-dubai-cake.png" },
-  { id: "strawberry-mousse", name: "Strawberry Bavaroise",    desc: "Silky strawberry bavaroise over a buttery biscuit base.",       boxPrice: 4, trayPrice: 10,   tier: "classic", category: "creamy", image: "/menu/strawberry-bavaroise.png" },
 
   { id: "halawa-bav",        name: "Halawa Bavaroise",        desc: "Lebanese halawa whipped into silky bavaroise cream.",           boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: "/menu/halawa-bavaroise.png" },
+  { id: "strawberry-mousse", name: "Strawberry Bavaroise",    desc: "Silky strawberry bavaroise over a buttery biscuit base.",       boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: "/menu/strawberry-bavaroise.png" },
   { id: "mango-bav",         name: "Mango Bavaroise",         desc: "Tropical mango bavaroise with a light vanilla finish.",         boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: "/menu/mango-bavaroise.png" },
   { id: "banana-bav",        name: "Banana Bavaroise",        desc: "Velvet banana bavaroise with caramelised biscuit crumble.",     boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: "/menu/banana-bavaroise.png" },
 ];

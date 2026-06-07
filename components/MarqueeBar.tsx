@@ -4,7 +4,7 @@ const items = [
   "Classic Tiramisu", "Lotus Cheesecake", "Oreo Cheesecake",
   "Strawberry Bavaroise", "Mango Bavaroise", "Blueberry Cheesecake",
   "Raspberry Cheesecake", "Brownie Tiramisu", "Halawa Bavaroise",
-  "Chocolate Dubai Cake", "Halawet el Riz", "Moufataka", "Kunafa",
+  "Chocolate Dubai Cake", "Halawet el Riz", "Moufataka", "Kunafa b Ashta",
 ];
 
 export default function MarqueeBar() {
