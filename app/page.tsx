@@ -414,10 +414,23 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
     setSelections({});
   }
 
+  const activePlanData = bundlePlans.find(p => p.id === activePlan) ?? null;
+
+  // Each flavour's price inside a bundle is the bundle's reference price for its
+  // tier divided by the number of boxes — so a full classic or full premium
+  // selection always lands exactly on the bundle's listed price.
+  function unitPrice(tier: "classic" | "premium", plan: BundlePlan): number {
+    return (tier === "classic" ? plan.classicRef : plan.premiumRef) / plan.count;
+  }
+
   function adjustQty(flavorId: string, delta: number) {
+    if (!activePlanData) return;
     setSelections(prev => {
+      const cur = prev[flavorId] ?? 0;
+      const total = Object.values(prev).reduce((a, b) => a + b, 0);
+      if (delta > 0 && total >= activePlanData.count) return prev;
+
       const next = { ...prev };
-      const cur = next[flavorId] ?? 0;
       const val = Math.max(0, cur + delta);
       if (val === 0) delete next[flavorId];
       else next[flavorId] = val;
@@ -430,15 +443,16 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
   }
 
   function totalPrice(): number {
+    if (!activePlanData) return 0;
     return Object.entries(selections).reduce((sum, [id, qty]) => {
       const f = allFlavors.find(f => f.id === id);
-      return sum + (f ? f.boxPrice * qty : 0);
+      return sum + (f ? unitPrice(f.tier, activePlanData) * qty : 0);
     }, 0);
   }
 
   function handleAddToCart() {
     const plan = bundlePlans.find(p => p.id === activePlan);
-    if (!plan || totalQty() === 0) return;
+    if (!plan || totalQty() !== plan.count) return;
 
     const detail = Object.entries(selections)
       .filter(([, q]) => q > 0)
@@ -472,7 +486,7 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
             color: "var(--text)", marginBottom: "0.75rem",
           }}>Pick Your Occasion</h2>
           <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: "0.9375rem", color: "var(--text-soft)", marginBottom: "3rem" }}>
-            Choose your bundle size, then mix any flavours you love.
+            Choose your bundle size, then fill it with any flavours you love.
           </p>
         </AnimatedSection>
 
@@ -507,7 +521,7 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
                   </p>
 
                   <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", marginBottom: "1.5rem" }}>
-                    {([["Classic flavours", `from $${plan.classicRef}`], ["Premium flavours", `from $${plan.premiumRef}`]] as [string, string][]).map(([label, price]) => (
+                    {([["Classic flavours", `$${plan.classicRef}`], ["Premium flavours", `$${plan.premiumRef}`]] as [string, string][]).map(([label, price]) => (
                       <div key={label} style={{
                         display: "flex", justifyContent: "space-between",
                         padding: "0.5rem 0.75rem",
@@ -559,7 +573,7 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
                     Build your {activeBundle.name}
                   </h3>
                   <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.875rem", color: "var(--text-soft)", fontWeight: 300 }}>
-                    Choose any flavours and quantities. Price auto-calculates.
+                    Pick exactly {activeBundle.count} boxes — mix any flavours you like. Price auto-calculates.
                   </p>
                 </div>
                 <button
@@ -571,37 +585,42 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(210px, 1fr))", gap: "0.75rem", marginBottom: "2rem" }}>
                 {allFlavors.map(flavor => {
                   const qty = selections[flavor.id] ?? 0;
+                  const price = unitPrice(flavor.tier, activeBundle);
+                  const atLimit = totalQty() >= activeBundle.count && qty === 0;
                   return (
                     <div key={flavor.id} style={{
                       background: qty > 0 ? "rgba(196,98,45,0.06)" : "#fff",
                       border: qty > 0 ? "1.5px solid var(--accent)" : "1px solid var(--border)",
                       borderRadius: 10, padding: "0.875rem 1rem",
                       display: "flex", flexDirection: "column", gap: "0.5rem",
-                      transition: "border-color 0.2s, background 0.2s",
+                      opacity: atLimit ? 0.5 : 1,
+                      transition: "border-color 0.2s, background 0.2s, opacity 0.2s",
                     }}>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
                         <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", fontWeight: 500, color: "var(--text)", lineHeight: 1.25, flex: 1 }}>{flavor.name}</span>
-                        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 600, color: "var(--accent)", marginLeft: "0.5rem", flexShrink: 0 }}>${flavor.boxPrice}</span>
+                        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 600, color: "var(--accent)", marginLeft: "0.5rem", flexShrink: 0 }}>${price.toFixed(2)}</span>
                       </div>
                       <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginTop: "0.25rem" }}>
                         <button
                           onClick={() => adjustQty(flavor.id, -1)}
+                          disabled={qty === 0}
                           style={{
                             width: 28, height: 28, borderRadius: "50%",
                             border: "1px solid var(--border)", background: "#fff",
-                            cursor: "pointer", fontSize: "1rem", color: "var(--text-mid)",
+                            cursor: qty === 0 ? "default" : "pointer", fontSize: "1rem", color: "var(--text-mid)",
                             display: "flex", alignItems: "center", justifyContent: "center",
-                            lineHeight: 1,
+                            lineHeight: 1, opacity: qty === 0 ? 0.4 : 1,
                           }}>−</button>
                         <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9375rem", fontWeight: 600, color: "var(--text)", minWidth: 20, textAlign: "center" }}>{qty}</span>
                         <button
                           onClick={() => adjustQty(flavor.id, 1)}
+                          disabled={atLimit}
                           style={{
                             width: 28, height: 28, borderRadius: "50%",
                             border: "1px solid var(--border)", background: "#fff",
-                            cursor: "pointer", fontSize: "1rem", color: "var(--text-mid)",
+                            cursor: atLimit ? "default" : "pointer", fontSize: "1rem", color: "var(--text-mid)",
                             display: "flex", alignItems: "center", justifyContent: "center",
-                            lineHeight: 1,
+                            lineHeight: 1, opacity: atLimit ? 0.4 : 1,
                           }}>+</button>
                       </div>
                     </div>
@@ -611,8 +630,14 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
 
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid var(--border)", paddingTop: "1.5rem", flexWrap: "wrap", gap: "1rem" }}>
                 <div>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", color: "var(--text-soft)", marginBottom: "0.2rem" }}>
-                    {totalQty()} {totalQty() === 1 ? "box" : "boxes"} selected
+                  <p style={{
+                    fontFamily: "'Inter', sans-serif", fontSize: "0.75rem",
+                    color: totalQty() === activeBundle.count ? "var(--accent)" : "var(--text-soft)",
+                    fontWeight: totalQty() === activeBundle.count ? 600 : 400,
+                    marginBottom: "0.2rem",
+                  }}>
+                    {totalQty()} / {activeBundle.count} boxes selected
+                    {totalQty() === activeBundle.count ? " — ready!" : ""}
                   </p>
                   <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.875rem", fontWeight: 500, color: "var(--text)" }}>
                     ${totalPrice().toFixed(2)}
@@ -620,19 +645,19 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
                 </div>
                 <button
                   onClick={handleAddToCart}
-                  disabled={totalQty() === 0}
+                  disabled={totalQty() !== activeBundle.count}
                   style={{
-                    background: totalQty() > 0 ? "var(--accent)" : "rgba(160,120,90,0.2)",
-                    color: totalQty() > 0 ? "#fff" : "var(--text-soft)",
+                    background: totalQty() === activeBundle.count ? "var(--accent)" : "rgba(160,120,90,0.2)",
+                    color: totalQty() === activeBundle.count ? "#fff" : "var(--text-soft)",
                     border: "none", borderRadius: 8,
                     padding: "13px 36px",
                     fontFamily: "'Inter', sans-serif", fontSize: "0.8rem",
                     fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase",
-                    cursor: totalQty() > 0 ? "pointer" : "default",
+                    cursor: totalQty() === activeBundle.count ? "pointer" : "default",
                     transition: "background 0.2s",
                   }}
-                  onMouseEnter={e => { if (totalQty() > 0) e.currentTarget.style.background = "var(--accent-h)"; }}
-                  onMouseLeave={e => { if (totalQty() > 0) e.currentTarget.style.background = "var(--accent)"; }}>
+                  onMouseEnter={e => { if (totalQty() === activeBundle.count) e.currentTarget.style.background = "var(--accent-h)"; }}
+                  onMouseLeave={e => { if (totalQty() === activeBundle.count) e.currentTarget.style.background = "var(--accent)"; }}>
                   Add to Cart
                 </button>
               </div>
