@@ -68,6 +68,8 @@ const allFlavors: {
   { id: "banana-bav",        name: "Banana Bavaroise",        desc: "Velvet banana bavaroise with caramelised biscuit crumble.",     boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: "/menu/banana-bavaroise.png" },
 ];
 
+const bundlePreviewImages = allFlavors.map(f => f.image).filter((src): src is string => !!src);
+
 const menuCategories: { id: "oriental" | "creamy" | "fluffy"; label: string; notes: string[] }[] = [
   { id: "oriental", label: "Oriental Boxes", notes: ["Solo Box  (1 serving)  ~200g"] },
   { id: "creamy",   label: "Creamy Boxes",   notes: ["Solo Box  (1 serving)  ~180g", "Tray  (2–3 servings)  ~450–500g"] },
@@ -106,8 +108,8 @@ const bundlePlans: BundlePlan[] = [
     name: "Celebration Box",
     count: 12,
     desc: "For the moments that deserve more.",
-    bg: "#7A1018",
-    accent: "#F0C68A",
+    bg: "#C8202E",
+    accent: "#FFE3B3",
     textColor: "#FFFFFF",
     subtextColor: "rgba(255,255,255,0.5)",
     border: "none",
@@ -523,17 +525,19 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
                   onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}>
 
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "0.3rem", marginBottom: "1rem" }}>
-                    {Array.from({ length: plan.count }).map((_, bi) => (
-                      <div key={bi} style={{
-                        width: 26, height: 26, borderRadius: 6,
-                        background: plan.id === "cozy" ? "rgba(196,98,45,0.1)" : "rgba(255,255,255,0.1)",
-                        border: `1px solid ${plan.id === "cozy" ? "rgba(196,98,45,0.25)" : "rgba(255,255,255,0.18)"}`,
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                        flexShrink: 0,
-                      }}>
-                        <span style={{ fontSize: "0.6rem", color: plan.accent, opacity: 0.7 }}>◆</span>
-                      </div>
-                    ))}
+                    {Array.from({ length: plan.count }).map((_, bi) => {
+                      const photo = bundlePreviewImages[bi % bundlePreviewImages.length];
+                      return (
+                        <div key={bi} style={{
+                          width: 26, height: 26, borderRadius: 6,
+                          background: plan.id === "cozy" ? "rgba(196,98,45,0.1)" : "rgba(255,255,255,0.1)",
+                          border: `1px solid ${plan.id === "cozy" ? "rgba(196,98,45,0.25)" : "rgba(255,255,255,0.18)"}`,
+                          overflow: "hidden", flexShrink: 0,
+                        }}>
+                          {photo && <img src={photo} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}/>}
+                        </div>
+                      );
+                    })}
                   </div>
 
                   <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6875rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 500, color: plan.subtextColor, marginBottom: "0.4rem" }}>
