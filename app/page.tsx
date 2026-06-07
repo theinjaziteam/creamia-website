@@ -93,10 +93,10 @@ const bundlePlans: BundlePlan[] = [
     name: "Gathering Box",
     count: 6,
     desc: "Bring joy to every table.",
-    bg: "#1C0902",
+    bg: "#4A1118",
     accent: "#E8956D",
     textColor: "#FFFFFF",
-    subtextColor: "rgba(255,255,255,0.5)",
+    subtextColor: "rgba(255,255,255,0.55)",
     border: "none",
     classicRef: 21,
     premiumRef: 27,
@@ -106,7 +106,7 @@ const bundlePlans: BundlePlan[] = [
     name: "Celebration Box",
     count: 12,
     desc: "For the moments that deserve more.",
-    bg: "#140700",
+    bg: "#11141F",
     accent: "#C9A87C",
     textColor: "#FFFFFF",
     subtextColor: "rgba(255,255,255,0.5)",
@@ -520,6 +520,20 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
                   onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.14)"; }}
                   onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}>
 
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.3rem", marginBottom: "1rem" }}>
+                    {Array.from({ length: plan.count }).map((_, bi) => (
+                      <div key={bi} style={{
+                        width: 26, height: 26, borderRadius: 6,
+                        background: plan.id === "cozy" ? "rgba(196,98,45,0.1)" : "rgba(255,255,255,0.1)",
+                        border: `1px solid ${plan.id === "cozy" ? "rgba(196,98,45,0.25)" : "rgba(255,255,255,0.18)"}`,
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        flexShrink: 0,
+                      }}>
+                        <span style={{ fontSize: "0.6rem", color: plan.accent, opacity: 0.7 }}>◆</span>
+                      </div>
+                    ))}
+                  </div>
+
                   <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6875rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 500, color: plan.subtextColor, marginBottom: "0.4rem" }}>
                     {plan.count} boxes
                   </p>
@@ -691,10 +705,19 @@ function MenuSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void })
             fontFamily: "'Cormorant Garamond', serif",
             fontSize: "clamp(2.5rem, 5vw, 3.75rem)",
             fontWeight: 400, lineHeight: 1,
-            color: "var(--text)", marginBottom: "3rem",
+            color: "var(--text)", marginBottom: "1.25rem",
           }}>
             Choose Your Layer
           </h2>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.45rem", marginBottom: "3rem" }}>
+            {["Solo Box  (1 serving)  ~180g", "Tray  (2–3 servings)  ~450g"].map((line, i) => (
+              <p key={i} style={{
+                fontFamily: "'Inter', sans-serif", fontWeight: 300,
+                fontSize: "0.875rem", color: "var(--text-soft)",
+              }}>— {line}</p>
+            ))}
+          </div>
         </AnimatedSection>
 
         {menuCategories.map((cat, ci) => {
@@ -799,17 +822,6 @@ function MenuSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void })
             </div>
           );
         })}
-
-        <AnimatedSection delay={0.2}>
-          <div style={{ marginTop: "2.25rem", display: "flex", flexDirection: "column", gap: "0.45rem" }}>
-            {["Solo Box  (1 serving)  ~180g", "Sharing Box  (2–3 servings)  ~450g"].map((line, i) => (
-              <p key={i} style={{
-                fontFamily: "'Inter', sans-serif", fontWeight: 300,
-                fontSize: "0.875rem", color: "var(--text-soft)",
-              }}>— {line}</p>
-            ))}
-          </div>
-        </AnimatedSection>
       </div>
     </section>
   );
