@@ -111,8 +111,8 @@ const bundlePlans: BundlePlan[] = [
     textColor: "#FFFFFF",
     subtextColor: "rgba(255,255,255,0.5)",
     border: "none",
-    classicRef: 40,
-    premiumRef: 50,
+    classicRef: 39,
+    premiumRef: 51,
   },
 ];
 
