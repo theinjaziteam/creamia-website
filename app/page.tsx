@@ -68,10 +68,10 @@ const allFlavors: {
   { id: "banana-bav",        name: "Banana Bavaroise",        desc: "Velvet banana bavaroise with caramelised biscuit crumble.",     boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: null },
 ];
 
-const menuCategories: { id: "oriental" | "creamy" | "fluffy"; label: string }[] = [
-  { id: "oriental", label: "Oriental Boxes" },
-  { id: "creamy",   label: "Creamy Boxes" },
-  { id: "fluffy",   label: "Fluffy Collection" },
+const menuCategories: { id: "oriental" | "creamy" | "fluffy"; label: string; notes: string[] }[] = [
+  { id: "oriental", label: "Oriental Boxes", notes: ["Solo Box  (1 serving)  ~200g"] },
+  { id: "creamy",   label: "Creamy Boxes",   notes: ["Solo Box  (1 serving)  ~180g", "Tray  (2–3 servings)  ~450–500g"] },
+  { id: "fluffy",   label: "Fluffy Collection", notes: ["Solo Box  (1 serving)  ~150g", "Tray  (2–3 servings)  ~350–400g"] },
 ];
 
 const bundlePlans: BundlePlan[] = [
@@ -171,7 +171,7 @@ function Navbar({ cart, onCartClick }: { cart: CartItem[]; onCartClick: () => vo
     }}>
       <a href="#" style={{ textDecoration: "none" }}>
         <span style={{
-          fontFamily: "'Pacifico', cursive",
+          fontFamily: "'Lobster', cursive",
           fontSize: "1.625rem", fontWeight: 400,
           color: scrolled ? "var(--text)" : "#fff",
           letterSpacing: "0", transition: "color 0.3s",
@@ -317,7 +317,7 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            fontFamily: "'Pacifico', cursive",
+            fontFamily: "'Lobster', cursive",
             fontSize: "clamp(3.5rem, 10vw, 8rem)",
             fontWeight: 400,
             lineHeight: 1, color: "#fff",
@@ -705,19 +705,10 @@ function MenuSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void })
             fontFamily: "'Cormorant Garamond', serif",
             fontSize: "clamp(2.5rem, 5vw, 3.75rem)",
             fontWeight: 400, lineHeight: 1,
-            color: "var(--text)", marginBottom: "1.25rem",
+            color: "var(--text)", marginBottom: "3rem",
           }}>
             Choose Your Layer
           </h2>
-
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.45rem", marginBottom: "3rem" }}>
-            {["Solo Box  (1 serving)  ~180g", "Tray  (2–3 servings)  ~450g"].map((line, i) => (
-              <p key={i} style={{
-                fontFamily: "'Inter', sans-serif", fontWeight: 300,
-                fontSize: "0.875rem", color: "var(--text-soft)",
-              }}>— {line}</p>
-            ))}
-          </div>
         </AnimatedSection>
 
         {menuCategories.map((cat, ci) => {
@@ -730,9 +721,17 @@ function MenuSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void })
                   fontFamily: "'Inter', sans-serif", fontSize: "0.75rem",
                   letterSpacing: "0.18em", textTransform: "uppercase",
                   color: "var(--accent)", fontWeight: 600,
-                  marginBottom: "1.25rem", paddingBottom: "0.75rem",
+                  marginBottom: "0.75rem", paddingBottom: "0.75rem",
                   borderBottom: "1px solid var(--border)",
                 }}>{cat.label}</h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "0.3rem", marginBottom: "1.5rem" }}>
+                  {cat.notes.map((line, ni) => (
+                    <p key={ni} style={{
+                      fontFamily: "'Inter', sans-serif", fontWeight: 300,
+                      fontSize: "0.8125rem", color: "var(--text-soft)",
+                    }}>— {line}</p>
+                  ))}
+                </div>
               </AnimatedSection>
 
               <div>
@@ -1102,7 +1101,7 @@ function Footer() {
     }}>
       <a href="#" style={{ textDecoration: "none" }}>
         <span style={{
-          fontFamily: "'Pacifico', cursive",
+          fontFamily: "'Lobster', cursive",
           fontSize: "1.625rem", fontWeight: 400, color: "var(--text)", letterSpacing: "0",
         }}>Cremia</span>
       </a>
