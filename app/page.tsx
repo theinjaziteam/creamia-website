@@ -52,20 +52,20 @@ const allFlavors: {
 }[] = [
   { id: "moufataka",         name: "Moufataka",               desc: "Lebanese classic — rice pudding, caramel, nuts.",              boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: null },
   { id: "kunafa",            name: "Kunafa",                  desc: "Crisp shredded pastry, sweet cheese, rosewater syrup.",        boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: null },
-  { id: "halawet-riz",       name: "Halawet el Riz",          desc: "Traditional Levantine rice cream, sweetened with rose.",        boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: null },
+  { id: "halawet-riz",       name: "Halawet el Riz",          desc: "Traditional Levantine rice cream, sweetened with rose.",        boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/halawet-el-riz.png" },
 
-  { id: "tiramisu-classic",  name: "Classic Tiramisu",        desc: "Espresso-soaked ladyfingers, mascarpone cream, dark cocoa.",   boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: null },
-  { id: "tiramisu-brownie",  name: "Brownie Tiramisu",        desc: "Fudgy brownie base meets tiramisu cream, perfectly layered.",  boxPrice: 7, trayPrice: 15,   tier: "premium", category: "creamy", image: null },
-  { id: "lotus-cheese",      name: "Lotus Cheesecake",        desc: "Biscoff crust, velvety cream cheese, drizzle of Lotus gold.",  boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: null },
-  { id: "oreo-cheese",       name: "Oreo Cheesecake",         desc: "Crushed Oreo crust, thick cream cheese, chocolate crumble.",   boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: null },
-  { id: "blueberry-cheese",  name: "Blueberry Cheesecake",    desc: "Tart blueberry compote swirled into creamy cheesecake.",       boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: null },
-  { id: "raspberry-cheese",  name: "Raspberry Cheesecake",    desc: "Tangy raspberry coulis ribboned through silky cheesecake.",    boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: null },
-  { id: "choc-dubai",        name: "Chocolate Dubai Cake",    desc: "Rich chocolate layered with crispy kataifi and pistachio.",    boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: null },
+  { id: "tiramisu-classic",  name: "Classic Tiramisu",        desc: "Espresso-soaked ladyfingers, mascarpone cream, dark cocoa.",   boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: "/menu/classic-tiramisu.png" },
+  { id: "tiramisu-brownie",  name: "Brownie Tiramisu",        desc: "Fudgy brownie base meets tiramisu cream, perfectly layered.",  boxPrice: 7, trayPrice: 15,   tier: "premium", category: "creamy", image: "/menu/brownie-tiramisu.png" },
+  { id: "lotus-cheese",      name: "Lotus Cheesecake",        desc: "Biscoff crust, velvety cream cheese, drizzle of Lotus gold.",  boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: "/menu/lotus-cheesecake.png" },
+  { id: "oreo-cheese",       name: "Oreo Cheesecake",         desc: "Crushed Oreo crust, thick cream cheese, chocolate crumble.",   boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: "/menu/oreo-cheesecake.png" },
+  { id: "blueberry-cheese",  name: "Blueberry Cheesecake",    desc: "Tart blueberry compote swirled into creamy cheesecake.",       boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: "/menu/blueberry-cheesecake.png" },
+  { id: "raspberry-cheese",  name: "Raspberry Cheesecake",    desc: "Tangy raspberry coulis ribboned through silky cheesecake.",    boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: "/menu/raspberry-cheesecake.png" },
+  { id: "choc-dubai",        name: "Chocolate Dubai Cake",    desc: "Rich chocolate layered with crispy kataifi and pistachio.",    boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: "/menu/chocolate-dubai-cake.png" },
+  { id: "strawberry-mousse", name: "Strawberry Bavaroise",    desc: "Silky strawberry bavaroise over a buttery biscuit base.",       boxPrice: 4, trayPrice: 10,   tier: "classic", category: "creamy", image: "/menu/strawberry-bavaroise.png" },
 
-  { id: "halawa-bav",        name: "Halawa Bavaroise",        desc: "Lebanese halawa whipped into silky bavaroise cream.",           boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: null },
-  { id: "strawberry-mousse", name: "Strawberry Bavaroise",    desc: "Silky strawberry bavaroise over a buttery biscuit base.",       boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: null },
-  { id: "mango-bav",         name: "Mango Bavaroise",         desc: "Tropical mango bavaroise with a light vanilla finish.",         boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: null },
-  { id: "banana-bav",        name: "Banana Bavaroise",        desc: "Velvet banana bavaroise with caramelised biscuit crumble.",     boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: null },
+  { id: "halawa-bav",        name: "Halawa Bavaroise",        desc: "Lebanese halawa whipped into silky bavaroise cream.",           boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: "/menu/halawa-bavaroise.png" },
+  { id: "mango-bav",         name: "Mango Bavaroise",         desc: "Tropical mango bavaroise with a light vanilla finish.",         boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: "/menu/mango-bavaroise.png" },
+  { id: "banana-bav",        name: "Banana Bavaroise",        desc: "Velvet banana bavaroise with caramelised biscuit crumble.",     boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: "/menu/banana-bavaroise.png" },
 ];
 
 const menuCategories: { id: "oriental" | "creamy" | "fluffy"; label: string; notes: string[] }[] = [
@@ -106,8 +106,8 @@ const bundlePlans: BundlePlan[] = [
     name: "Celebration Box",
     count: 12,
     desc: "For the moments that deserve more.",
-    bg: "#11141F",
-    accent: "#C9A87C",
+    bg: "#7A1018",
+    accent: "#F0C68A",
     textColor: "#FFFFFF",
     subtextColor: "rgba(255,255,255,0.5)",
     border: "none",
@@ -171,9 +171,9 @@ function Navbar({ cart, onCartClick }: { cart: CartItem[]; onCartClick: () => vo
     }}>
       <a href="#" style={{ textDecoration: "none" }}>
         <span style={{
-          fontFamily: "'Kaushan Script', cursive",
+          fontFamily: "'Pacifico', cursive",
           fontSize: "1.625rem", fontWeight: 400,
-          color: scrolled ? "var(--text)" : "#fff",
+          color: "var(--logo-red)",
           letterSpacing: "0", transition: "color 0.3s",
         }}>
           Cremia
@@ -317,10 +317,10 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            fontFamily: "'Kaushan Script', cursive",
+            fontFamily: "'Pacifico', cursive",
             fontSize: "clamp(3.5rem, 10vw, 8rem)",
             fontWeight: 400,
-            lineHeight: 1, color: "#fff",
+            lineHeight: 1, color: "var(--logo-red)",
             letterSpacing: "0", marginBottom: "1.75rem",
           }}>
           Cremia
@@ -1108,8 +1108,8 @@ function Footer() {
     }}>
       <a href="#" style={{ textDecoration: "none" }}>
         <span style={{
-          fontFamily: "'Kaushan Script', cursive",
-          fontSize: "1.625rem", fontWeight: 400, color: "var(--text)", letterSpacing: "0",
+          fontFamily: "'Pacifico', cursive",
+          fontSize: "1.625rem", fontWeight: 400, color: "var(--logo-red)", letterSpacing: "0",
         }}>Cremia</span>
       </a>
       <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "0.9375rem", color: "var(--text-soft)" }}>
