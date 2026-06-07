@@ -171,7 +171,7 @@ function Navbar({ cart, onCartClick }: { cart: CartItem[]; onCartClick: () => vo
     }}>
       <a href="#" style={{ textDecoration: "none" }}>
         <span style={{
-          fontFamily: "'Lobster', cursive",
+          fontFamily: "'Kaushan Script', cursive",
           fontSize: "1.625rem", fontWeight: 400,
           color: scrolled ? "var(--text)" : "#fff",
           letterSpacing: "0", transition: "color 0.3s",
@@ -317,7 +317,7 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            fontFamily: "'Lobster', cursive",
+            fontFamily: "'Kaushan Script', cursive",
             fontSize: "clamp(3.5rem, 10vw, 8rem)",
             fontWeight: 400,
             lineHeight: 1, color: "#fff",
@@ -1108,7 +1108,7 @@ function Footer() {
     }}>
       <a href="#" style={{ textDecoration: "none" }}>
         <span style={{
-          fontFamily: "'Lobster', cursive",
+          fontFamily: "'Kaushan Script', cursive",
           fontSize: "1.625rem", fontWeight: 400, color: "var(--text)", letterSpacing: "0",
         }}>Cremia</span>
       </a>
