@@ -47,21 +47,31 @@ const allFlavors: {
   boxPrice: number;
   trayPrice: number | null;
   tier: "classic" | "premium";
+  category: "oriental" | "creamy" | "fluffy";
   image: string | null;
 }[] = [
-  { id: "halawa-bav",        name: "Halawa Bavarian Cream",   desc: "Lebanese halawa whipped into silky bavarian cream.",            boxPrice: 4, trayPrice: 10,   tier: "classic", image: null },
-  { id: "strawberry-mousse", name: "Strawberry Mousse Cake",  desc: "Silky strawberry mousse over a buttery biscuit base.",          boxPrice: 4, trayPrice: 10,   tier: "classic", image: null },
-  { id: "mango-bav",         name: "Mango Bavarian Cream",    desc: "Tropical mango custard with a light vanilla finish.",           boxPrice: 4, trayPrice: 10,   tier: "classic", image: null },
-  { id: "banana-bav",        name: "Banana Bavarian Cream",   desc: "Velvet banana cream with caramelised biscuit crumble.",         boxPrice: 4, trayPrice: 10,   tier: "classic", image: null },
-  { id: "halawet-riz",       name: "Halawet el Riz",          desc: "Traditional Levantine rice cream, sweetened with rose.",        boxPrice: 4, trayPrice: null, tier: "classic", image: null },
-  { id: "moufataka",         name: "Moufataka",               desc: "Lebanese classic — rice pudding, caramel, nuts.",              boxPrice: 4, trayPrice: null, tier: "classic", image: null },
-  { id: "tiramisu-classic",  name: "Classic Tiramisu",        desc: "Espresso-soaked ladyfingers, mascarpone cream, dark cocoa.",   boxPrice: 6, trayPrice: 13,   tier: "premium", image: null },
-  { id: "tiramisu-brownie",  name: "Brownie Tiramisu",        desc: "Fudgy brownie base meets tiramisu cream, perfectly layered.",  boxPrice: 7, trayPrice: 15,   tier: "premium", image: null },
-  { id: "lotus-cheese",      name: "Lotus Cheesecake",        desc: "Biscoff crust, velvety cream cheese, drizzle of Lotus gold.",  boxPrice: 6, trayPrice: 13,   tier: "premium", image: null },
-  { id: "oreo-cheese",       name: "Oreo Cheesecake",         desc: "Crushed Oreo crust, thick cream cheese, chocolate crumble.",   boxPrice: 6, trayPrice: 13,   tier: "premium", image: null },
-  { id: "blueberry-cheese",  name: "Blueberry Cheesecake",    desc: "Tart blueberry compote swirled into creamy cheesecake.",       boxPrice: 6, trayPrice: 13,   tier: "premium", image: null },
-  { id: "raspberry-cheese",  name: "Raspberry Cheesecake",    desc: "Tangy raspberry coulis ribboned through silky cheesecake.",    boxPrice: 6, trayPrice: 13,   tier: "premium", image: null },
-  { id: "choc-dubai",        name: "Chocolate Dubai Cake",    desc: "Rich chocolate layered with crispy kataifi and pistachio.",    boxPrice: 6, trayPrice: 13,   tier: "premium", image: null },
+  { id: "moufataka",         name: "Moufataka",               desc: "Lebanese classic — rice pudding, caramel, nuts.",              boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: null },
+  { id: "kunafa",            name: "Kunafa",                  desc: "Crisp shredded pastry, sweet cheese, rosewater syrup.",        boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: null },
+  { id: "halawet-riz",       name: "Halawet el Riz",          desc: "Traditional Levantine rice cream, sweetened with rose.",        boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: null },
+
+  { id: "tiramisu-classic",  name: "Classic Tiramisu",        desc: "Espresso-soaked ladyfingers, mascarpone cream, dark cocoa.",   boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: null },
+  { id: "tiramisu-brownie",  name: "Brownie Tiramisu",        desc: "Fudgy brownie base meets tiramisu cream, perfectly layered.",  boxPrice: 7, trayPrice: 15,   tier: "premium", category: "creamy", image: null },
+  { id: "lotus-cheese",      name: "Lotus Cheesecake",        desc: "Biscoff crust, velvety cream cheese, drizzle of Lotus gold.",  boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: null },
+  { id: "oreo-cheese",       name: "Oreo Cheesecake",         desc: "Crushed Oreo crust, thick cream cheese, chocolate crumble.",   boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: null },
+  { id: "blueberry-cheese",  name: "Blueberry Cheesecake",    desc: "Tart blueberry compote swirled into creamy cheesecake.",       boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: null },
+  { id: "raspberry-cheese",  name: "Raspberry Cheesecake",    desc: "Tangy raspberry coulis ribboned through silky cheesecake.",    boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: null },
+  { id: "choc-dubai",        name: "Chocolate Dubai Cake",    desc: "Rich chocolate layered with crispy kataifi and pistachio.",    boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: null },
+
+  { id: "halawa-bav",        name: "Halawa Bavaroise",        desc: "Lebanese halawa whipped into silky bavaroise cream.",           boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: null },
+  { id: "strawberry-mousse", name: "Strawberry Bavaroise",    desc: "Silky strawberry bavaroise over a buttery biscuit base.",       boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: null },
+  { id: "mango-bav",         name: "Mango Bavaroise",         desc: "Tropical mango bavaroise with a light vanilla finish.",         boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: null },
+  { id: "banana-bav",        name: "Banana Bavaroise",        desc: "Velvet banana bavaroise with caramelised biscuit crumble.",     boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: null },
+];
+
+const menuCategories: { id: "oriental" | "creamy" | "fluffy"; label: string }[] = [
+  { id: "oriental", label: "Oriental Boxes" },
+  { id: "creamy",   label: "Creamy Boxes" },
+  { id: "fluffy",   label: "Fluffy Collection" },
 ];
 
 const bundlePlans: BundlePlan[] = [
@@ -161,12 +171,12 @@ function Navbar({ cart, onCartClick }: { cart: CartItem[]; onCartClick: () => vo
     }}>
       <a href="#" style={{ textDecoration: "none" }}>
         <span style={{
-          fontFamily: "'Cormorant Garamond', serif",
-          fontSize: "1.75rem", fontWeight: 500, fontStyle: "italic",
+          fontFamily: "'Pacifico', cursive",
+          fontSize: "1.625rem", fontWeight: 400,
           color: scrolled ? "var(--text)" : "#fff",
-          letterSpacing: "-0.01em", transition: "color 0.3s",
+          letterSpacing: "0", transition: "color 0.3s",
         }}>
-          Cremia<span style={{ color: "var(--accent)" }}>~</span>
+          Cremia
         </span>
       </a>
 
@@ -307,13 +317,13 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "clamp(4.5rem, 13vw, 10rem)",
-            fontWeight: 400, fontStyle: "italic",
-            lineHeight: 0.9, color: "#fff",
-            letterSpacing: "-0.02em", marginBottom: "1.75rem",
+            fontFamily: "'Pacifico', cursive",
+            fontSize: "clamp(3.5rem, 10vw, 8rem)",
+            fontWeight: 400,
+            lineHeight: 1, color: "#fff",
+            letterSpacing: "0", marginBottom: "1.75rem",
           }}>
-          Cremia<span style={{ color: "var(--accent)" }}>~</span>
+          Cremia
         </motion.h1>
 
         <motion.p
@@ -687,90 +697,108 @@ function MenuSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void })
           </h2>
         </AnimatedSection>
 
-        <div>
-          {allFlavors.map((item, i) => (
-            <AnimatedSection key={item.id} delay={i * 0.04}>
-              <div style={{
-                padding: "1.625rem 0",
-                borderBottom: "1px solid var(--border)",
-                display: "flex", gap: "1.25rem", alignItems: "flex-start",
-              }}>
-                {/* Image */}
-                <div style={{
-                  width: 88, height: 88, flexShrink: 0,
-                  borderRadius: 10,
-                  background: "var(--cream)",
-                  border: "1px solid var(--border)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  overflow: "hidden",
-                }}>
-                  {item.image
-                    ? <img src={item.image} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "cover" }}/>
-                    : <span style={{ fontSize: "1.75rem", opacity: 0.18 }}>◻</span>
-                  }
-                </div>
+        {menuCategories.map((cat, ci) => {
+          const items = allFlavors.filter(f => f.category === cat.id);
+          if (!items.length) return null;
+          return (
+            <div key={cat.id} style={{ marginBottom: ci < menuCategories.length - 1 ? "3rem" : 0 }}>
+              <AnimatedSection delay={ci * 0.05}>
+                <h3 style={{
+                  fontFamily: "'Inter', sans-serif", fontSize: "0.75rem",
+                  letterSpacing: "0.18em", textTransform: "uppercase",
+                  color: "var(--accent)", fontWeight: 600,
+                  marginBottom: "1.25rem", paddingBottom: "0.75rem",
+                  borderBottom: "1px solid var(--border)",
+                }}>{cat.label}</h3>
+              </AnimatedSection>
 
-                <div style={{ flex: 1 }}>
-                  <h3 style={{
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: "1.1875rem", fontWeight: 500,
-                    color: "var(--text)", lineHeight: 1.2,
-                    marginBottom: "0.35rem",
-                  }}>{item.name}</h3>
-                  <p style={{
-                    fontFamily: "'Inter', sans-serif", fontWeight: 300,
-                    fontSize: "0.875rem", color: "var(--text-soft)",
-                    lineHeight: 1.55, marginBottom: "0.875rem",
-                  }}>{item.desc}</p>
+              <div>
+                {items.map((item, i) => (
+                  <AnimatedSection key={item.id} delay={i * 0.04}>
+                    <div style={{
+                      padding: "1.625rem 0",
+                      borderBottom: "1px solid var(--border)",
+                      display: "flex", gap: "1.25rem", alignItems: "flex-start",
+                    }}>
+                      {/* Image */}
+                      <div style={{
+                        width: 88, height: 88, flexShrink: 0,
+                        borderRadius: 10,
+                        background: "var(--cream)",
+                        border: "1px solid var(--border)",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        overflow: "hidden",
+                      }}>
+                        {item.image
+                          ? <img src={item.image} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "cover" }}/>
+                          : <span style={{ fontSize: "1.75rem", opacity: 0.18 }}>◻</span>
+                        }
+                      </div>
 
-                  <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-                    {/* Box */}
-                    <button
-                      onClick={() => onAddToCart({
-                        id: `${item.id}-box-${Date.now()}`,
-                        name: item.name, detail: "Solo Box",
-                        price: item.boxPrice, qty: 1, image: item.image,
-                      })}
-                      style={{
-                        display: "inline-flex", alignItems: "center", gap: "0.4rem",
-                        background: "var(--bg)", border: "1px solid var(--border)",
-                        borderRadius: 6, padding: "7px 13px", cursor: "pointer",
-                        transition: "border-color 0.2s, background 0.2s",
-                      }}
-                      onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--accent)"; e.currentTarget.style.background = "rgba(196,98,45,0.04)"; }}
-                      onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.background = "var(--bg)"; }}>
-                      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.625rem", color: "var(--text-soft)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Box</span>
-                      <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.0625rem", fontWeight: 500, color: "var(--text)" }}>${item.boxPrice}</span>
-                      <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", color: "var(--accent)", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase" }}>+ Add</span>
-                    </button>
+                      <div style={{ flex: 1 }}>
+                        <h3 style={{
+                          fontFamily: "'Cormorant Garamond', serif",
+                          fontSize: "1.1875rem", fontWeight: 500,
+                          color: "var(--text)", lineHeight: 1.2,
+                          marginBottom: "0.35rem",
+                        }}>{item.name}</h3>
+                        <p style={{
+                          fontFamily: "'Inter', sans-serif", fontWeight: 300,
+                          fontSize: "0.875rem", color: "var(--text-soft)",
+                          lineHeight: 1.55, marginBottom: "0.875rem",
+                        }}>{item.desc}</p>
 
-                    {/* Tray */}
-                    {item.trayPrice && (
-                      <button
-                        onClick={() => onAddToCart({
-                          id: `${item.id}-tray-${Date.now()}`,
-                          name: item.name, detail: "Sharing Tray",
-                          price: item.trayPrice!, qty: 1, image: item.image,
-                        })}
-                        style={{
-                          display: "inline-flex", alignItems: "center", gap: "0.4rem",
-                          background: "var(--bg)", border: "1px solid var(--border)",
-                          borderRadius: 6, padding: "7px 13px", cursor: "pointer",
-                          transition: "border-color 0.2s, background 0.2s",
-                        }}
-                        onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--accent)"; e.currentTarget.style.background = "rgba(196,98,45,0.04)"; }}
-                        onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.background = "var(--bg)"; }}>
-                        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.625rem", color: "var(--text-soft)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Tray</span>
-                        <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.0625rem", fontWeight: 500, color: "var(--text)" }}>${item.trayPrice}</span>
-                        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", color: "var(--accent)", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase" }}>+ Add</span>
-                      </button>
-                    )}
-                  </div>
-                </div>
+                        <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                          {/* Box */}
+                          <button
+                            onClick={() => onAddToCart({
+                              id: `${item.id}-box-${Date.now()}`,
+                              name: item.name, detail: "Solo Box",
+                              price: item.boxPrice, qty: 1, image: item.image,
+                            })}
+                            style={{
+                              display: "inline-flex", alignItems: "center", gap: "0.4rem",
+                              background: "var(--bg)", border: "1px solid var(--border)",
+                              borderRadius: 6, padding: "7px 13px", cursor: "pointer",
+                              transition: "border-color 0.2s, background 0.2s",
+                            }}
+                            onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--accent)"; e.currentTarget.style.background = "rgba(196,98,45,0.04)"; }}
+                            onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.background = "var(--bg)"; }}>
+                            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.625rem", color: "var(--text-soft)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Box</span>
+                            <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.0625rem", fontWeight: 500, color: "var(--text)" }}>${item.boxPrice}</span>
+                            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", color: "var(--accent)", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase" }}>+ Add</span>
+                          </button>
+
+                          {/* Tray */}
+                          {item.trayPrice && (
+                            <button
+                              onClick={() => onAddToCart({
+                                id: `${item.id}-tray-${Date.now()}`,
+                                name: item.name, detail: "Sharing Tray",
+                                price: item.trayPrice!, qty: 1, image: item.image,
+                              })}
+                              style={{
+                                display: "inline-flex", alignItems: "center", gap: "0.4rem",
+                                background: "var(--bg)", border: "1px solid var(--border)",
+                                borderRadius: 6, padding: "7px 13px", cursor: "pointer",
+                                transition: "border-color 0.2s, background 0.2s",
+                              }}
+                              onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--accent)"; e.currentTarget.style.background = "rgba(196,98,45,0.04)"; }}
+                              onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.background = "var(--bg)"; }}>
+                              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.625rem", color: "var(--text-soft)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Tray</span>
+                              <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.0625rem", fontWeight: 500, color: "var(--text)" }}>${item.trayPrice}</span>
+                              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6rem", color: "var(--accent)", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase" }}>+ Add</span>
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                ))}
               </div>
-            </AnimatedSection>
-          ))}
-        </div>
+            </div>
+          );
+        })}
 
         <AnimatedSection delay={0.2}>
           <div style={{ marginTop: "2.25rem", display: "flex", flexDirection: "column", gap: "0.45rem" }}>
@@ -837,7 +865,7 @@ function OrderSection({ cart, onUpdateQty, onRemove }: {
     if (cart.length === 0) return;
 
     const lines = [
-      "Hi, I'd like to place an order with Cremia~:",
+      "Hi, I'd like to place an order with Cremia:",
       "",
       ...cart.map(item => `• ${item.name} (${item.detail}) ×${item.qty} — $${(item.price * item.qty).toFixed(2)}`),
       "",
@@ -1062,9 +1090,9 @@ function Footer() {
     }}>
       <a href="#" style={{ textDecoration: "none" }}>
         <span style={{
-          fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic",
-          fontSize: "1.75rem", fontWeight: 500, color: "var(--text)", letterSpacing: "-0.01em",
-        }}>Cremia<span style={{ color: "var(--accent)" }}>~</span></span>
+          fontFamily: "'Pacifico', cursive",
+          fontSize: "1.625rem", fontWeight: 400, color: "var(--text)", letterSpacing: "0",
+        }}>Cremia</span>
       </a>
       <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "0.9375rem", color: "var(--text-soft)" }}>
         Every spoon hits a new layer.
@@ -1074,7 +1102,7 @@ function Footer() {
         @Cremia_lb
       </a>
       <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", color: "var(--text-soft)", letterSpacing: "0.04em" }}>
-        © {new Date().getFullYear()} Cremia~. Lebanon.
+        © {new Date().getFullYear()} Cremia. Lebanon.
       </p>
     </footer>
   );
