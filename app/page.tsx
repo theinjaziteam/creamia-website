@@ -504,10 +504,12 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
           {bundlePlans.map((plan, i) => {
             const isActive = activePlan === plan.id;
             return (
-              <AnimatedSection key={plan.id} delay={i * 0.1}>
+              <AnimatedSection key={plan.id} delay={i * 0.1} style={{ height: "100%" }}>
                 <div
                   onClick={() => openBundle(plan.id)}
                   style={{
+                    height: "100%",
+                    display: "flex", flexDirection: "column",
                     background: plan.bg,
                     border: plan.border,
                     borderRadius: 14,
@@ -545,7 +547,7 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
                   </p>
 
                   <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", marginBottom: "1.5rem" }}>
-                    {([["Classic flavours", `$${plan.classicRef}`], ["Premium flavours", `$${plan.premiumRef}`]] as [string, string][]).map(([label, price]) => (
+                    {([["Oriental + Fluffy Collection", `$${plan.classicRef}`], ["Creamy Boxes", `$${plan.premiumRef}`]] as [string, string][]).map(([label, price]) => (
                       <div key={label} style={{
                         display: "flex", justifyContent: "space-between",
                         padding: "0.5rem 0.75rem",
@@ -559,6 +561,7 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
                   </div>
 
                   <div style={{
+                    marginTop: "auto",
                     width: "100%", padding: "11px 0", textAlign: "center",
                     background: isActive ? plan.accent : "transparent",
                     border: `1px solid ${plan.accent}`,
@@ -581,15 +584,19 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
           {activeBundle && (
             <motion.div
               key={activeBundle.id}
-              initial={{ opacity: 0, y: -12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0, y: -28, scale: 0.94 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -16, scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 260, damping: 26, mass: 0.7 }}
               style={{
-                marginTop: "2rem",
+                transformOrigin: "top center",
+                marginTop: "2.5rem",
+                maxWidth: 880,
+                marginLeft: "auto", marginRight: "auto",
                 background: "var(--bg-warm)",
-                borderRadius: 14, padding: "2.5rem 2rem",
+                borderRadius: 20, padding: "3rem 2.5rem",
                 border: "1px solid var(--border)",
+                boxShadow: "0 24px 70px rgba(38,20,8,0.12)",
               }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "2rem", flexWrap: "wrap", gap: "1rem" }}>
                 <div>
