@@ -172,15 +172,8 @@ function Navbar({ cart, onCartClick }: { cart: CartItem[]; onCartClick: () => vo
       borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
       transition: "background 0.4s, border-color 0.4s",
     }}>
-      <a href="#" style={{ textDecoration: "none" }}>
-        <span style={{
-          fontFamily: "'Pacifico', cursive",
-          fontSize: "1.625rem", fontWeight: 400,
-          color: "var(--logo-red)",
-          letterSpacing: "0", transition: "color 0.3s",
-        }}>
-          Cremia
-        </span>
+      <a href="#" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+        <img src="/cremia-logo.png" alt="Cremia" style={{ height: 28, width: "auto", display: "block" }}/>
       </a>
 
       <div style={{ display: "flex", gap: "2.5rem", alignItems: "center" }} className="nav-links">
@@ -316,18 +309,15 @@ function Hero() {
           Lebanese Handcrafted Desserts
         </motion.p>
 
-        <motion.h1
+        <motion.img
+          src="/cremia-logo.png" alt="Cremia"
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            fontFamily: "'Pacifico', cursive",
-            fontSize: "clamp(3.5rem, 10vw, 8rem)",
-            fontWeight: 400,
-            lineHeight: 1, color: "var(--logo-red)",
-            letterSpacing: "0", marginBottom: "1.75rem",
-          }}>
-          Cremia
-        </motion.h1>
+            height: "clamp(3.5rem, 10vw, 8rem)",
+            width: "auto",
+            marginBottom: "1.75rem",
+          }}/>
 
         <motion.p
           initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
@@ -1111,11 +1101,8 @@ function Footer() {
       padding: "3rem 2rem",
       display: "flex", flexDirection: "column", alignItems: "center", gap: "1.25rem", textAlign: "center",
     }}>
-      <a href="#" style={{ textDecoration: "none" }}>
-        <span style={{
-          fontFamily: "'Pacifico', cursive",
-          fontSize: "1.625rem", fontWeight: 400, color: "var(--logo-red)", letterSpacing: "0",
-        }}>Cremia</span>
+      <a href="#" style={{ textDecoration: "none", display: "inline-flex" }}>
+        <img src="/cremia-logo.png" alt="Cremia" style={{ height: 28, width: "auto", display: "block" }}/>
       </a>
       <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "0.9375rem", color: "var(--text-soft)" }}>
         Every spoon hits a new layer.
