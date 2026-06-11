@@ -50,8 +50,10 @@ const allFlavors: {
   category: "oriental" | "creamy" | "fluffy";
   image: string | null;
 }[] = [
-  { id: "moufataka",         name: "Moufataka",               desc: "Lebanese classic — rice pudding, caramel, nuts.",              boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/moufataka.jpg" },
+  { id: "halawet-jibn",      name: "Halawet El Jibn",         desc: "Sweet cheese rolls filled with ashta, soaked in rose syrup.",  boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/halawet-el-jibn.png" },
+  { id: "osmaliyeh",         name: "Osmaliyeh",               desc: "Crisp shredded kunafa layered with ashta and pistachios.",     boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: null },
   { id: "halawet-riz",       name: "Halawet el Riz",          desc: "Traditional Levantine rice cream, sweetened with rose.",        boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/halawet-el-riz.png" },
+  { id: "moufataka",         name: "Moufataka",               desc: "Lebanese classic — rice pudding, caramel, nuts.",              boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/moufataka.jpg" },
 
   { id: "tiramisu-classic",  name: "Classic Tiramisu",        desc: "Espresso-soaked ladyfingers, mascarpone cream, dark cocoa.",   boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: "/menu/classic-tiramisu.png" },
   { id: "tiramisu-brownie",  name: "Brownie Tiramisu",        desc: "Fudgy brownie base meets tiramisu cream, perfectly layered.",  boxPrice: 7, trayPrice: 15,   tier: "premium", category: "creamy", image: "/menu/brownie-tiramisu.png" },
@@ -754,7 +756,7 @@ function MenuSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void })
                     }}>
                       {/* Image */}
                       <div style={{
-                        width: 88, height: 88, flexShrink: 0,
+                        width: 119, height: 119, flexShrink: 0,
                         borderRadius: 10,
                         background: "var(--cream)",
                         border: "1px solid var(--border)",
