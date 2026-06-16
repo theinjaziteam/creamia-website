@@ -51,7 +51,7 @@ const allFlavors: {
   image: string | null;
 }[] = [
   { id: "halawet-jibn",      name: "Halawet El Jibn",         desc: "Sweet cheese rolls filled with ashta, soaked in rose syrup.",  boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/halawet-el-jibn.png" },
-  { id: "osmaliyeh",         name: "Osmaliyeh",               desc: "Crisp shredded kunafa layered with ashta and pistachios.",     boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: null },
+  { id: "osmaliyeh",         name: "Osmaliyeh",               desc: "Crisp shredded osmaliyeh pastry with ashta cream and pistachios.", boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/osmaliyeh.jpg" },
   { id: "halawet-riz",       name: "Halawet el Riz",          desc: "Traditional Levantine rice cream, sweetened with rose.",        boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/halawet-el-riz.png" },
   { id: "moufataka",         name: "Moufataka",               desc: "Lebanese classic — rice pudding, caramel, nuts.",              boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/moufataka.jpg" },
 
