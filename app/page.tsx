@@ -82,7 +82,7 @@ const bundlePlans: BundlePlan[] = [
     id: "cozy",
     name: "Cozy Box",
     count: 4,
-    desc: "Perfect for two — or just you.",
+    desc: "Perfect for four — or just you.",
     bg: "#FFF0DB",
     accent: "#C4622D",
     textColor: "#261408",
@@ -391,15 +391,7 @@ function Intro() {
   return (
     <section style={{ background: "var(--bg)", padding: "6rem 2rem 5rem" }}>
       <AnimatedSection style={{ maxWidth: 720, margin: "0 auto", textAlign: "center" }}>
-        <p style={{
-          fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic",
-          fontWeight: 300, fontSize: "clamp(1.5rem, 3vw, 2.1rem)",
-          color: "var(--text)", lineHeight: 1.55, letterSpacing: "0.01em",
-        }}>
-          Cremia is crafted for those who believe a dessert should be an experience —
-          from the very first glance to the very last spoon.
-        </p>
-        <div style={{ width: 40, height: 2, background: "var(--accent)", margin: "2rem auto 0", borderRadius: 1 }}/>
+        <img src="/story-image.jpeg" alt="Oriental meets West" style={{ width: "100%", maxWidth: 560, borderRadius: 16, display: "block", margin: "0 auto" }}/>
       </AnimatedSection>
     </section>
   );
@@ -478,27 +470,49 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
   const activeBundle = bundlePlans.find(p => p.id === activePlan);
 
   return (
-    <section id="bundles" style={{ background: "var(--bg)", padding: "7rem 2rem" }}>
+    <section id="bundles" style={{ background: "var(--bg)", padding: "7rem 2rem" }} className="bundle-section">
+      <style>{`
+        @media (max-width: 768px) {
+          .bundle-section { padding: 2.5rem 0.875rem !important; }
+          .bundle-heading-block { margin-bottom: 0 !important; }
+          .bundle-heading-block h2 { font-size: 1.75rem !important; margin-bottom: 0.25rem !important; }
+          .bundle-heading-block > div > p:last-child { margin-bottom: 1.25rem !important; font-size: 0.8rem !important; }
+          .bundle-grid { gap: 0.5rem !important; }
+          .bundle-card { padding: 0.75rem !important; border-radius: 10px !important; }
+          .bundle-photos { gap: 0.2rem !important; margin-bottom: 0.5rem !important; }
+          .bundle-photos > div { width: 18px !important; height: 18px !important; border-radius: 4px !important; }
+          .bundle-count-label { margin-bottom: 0.1rem !important; font-size: 0.575rem !important; }
+          .bundle-card-title { font-size: 1.25rem !important; margin-bottom: 0.15rem !important; }
+          .bundle-card-desc { font-size: 0.775rem !important; margin-bottom: 0.5rem !important; }
+          .bundle-price-rows { gap: 0.2rem !important; margin-bottom: 0.5rem !important; }
+          .bundle-price-row { padding: 0.3rem 0.5rem !important; border-radius: 5px !important; }
+          .bundle-price-row span:first-child { font-size: 0.7rem !important; }
+          .bundle-price-row span:last-child { font-size: 0.875rem !important; }
+          .bundle-cta { padding: 7px 0 !important; font-size: 0.625rem !important; }
+          .bundle-pack-label { font-size: 1rem !important; margin-bottom: 0.4rem !important; }
+        }
+      `}</style>
       <div style={{ maxWidth: 1060, margin: "0 auto" }}>
-        <AnimatedSection>
+        <AnimatedSection className="bundle-heading-block">
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6875rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--accent)", marginBottom: "0.75rem", fontWeight: 500 }}>Bundle Sets</p>
           <h2 style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontSize: "clamp(2.5rem, 5vw, 3.75rem)",
             fontWeight: 400, lineHeight: 1,
             color: "var(--text)", marginBottom: "0.75rem",
-          }}>Pick Your Occasion</h2>
+          }}>Build Your Own 4, 6, 12 Pack</h2>
           <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: "0.9375rem", color: "var(--text-soft)", marginBottom: "3rem" }}>
             Choose your bundle size, then fill it with any flavours you love.
           </p>
         </AnimatedSection>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.25rem" }}>
+        <div className="bundle-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.25rem" }}>
           {bundlePlans.map((plan, i) => {
             const isActive = activePlan === plan.id;
             return (
               <AnimatedSection key={plan.id} delay={i * 0.1} style={{ height: "100%" }}>
                 <div
+                  className="bundle-card"
                   onClick={() => openBundle(plan.id)}
                   style={{
                     height: "100%",
@@ -515,7 +529,13 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
                   onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.14)"; }}
                   onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}>
 
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.3rem", marginBottom: "1rem" }}>
+                  <p className="bundle-pack-label" style={{
+                    fontFamily: "'Cormorant Garamond', serif", fontWeight: 600,
+                    fontSize: "1.25rem", color: plan.textColor,
+                    marginBottom: "0.75rem", lineHeight: 1,
+                  }}>Build Your Own {plan.count}-pack</p>
+
+                  <div className="bundle-photos" style={{ display: "flex", flexWrap: "wrap", gap: "0.3rem", marginBottom: "1rem" }}>
                     {Array.from({ length: plan.count }).map((_, bi) => {
                       const photo = bundlePreviewImages[bi % bundlePreviewImages.length];
                       return (
@@ -531,19 +551,19 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
                     })}
                   </div>
 
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6875rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 500, color: plan.subtextColor, marginBottom: "0.4rem" }}>
+                  <p className="bundle-count-label" style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.6875rem", letterSpacing: "0.18em", textTransform: "uppercase", fontWeight: 500, color: plan.subtextColor, marginBottom: "0.4rem" }}>
                     {plan.count} boxes
                   </p>
-                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", fontWeight: 500, lineHeight: 1, color: plan.textColor, marginBottom: "0.75rem" }}>
+                  <h3 className="bundle-card-title" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", fontWeight: 500, lineHeight: 1, color: plan.textColor, marginBottom: "0.75rem" }}>
                     {plan.name}
                   </h3>
-                  <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "1rem", fontWeight: 300, color: plan.subtextColor, marginBottom: "1.5rem" }}>
+                  <p className="bundle-card-desc" style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "1rem", fontWeight: 300, color: plan.subtextColor, marginBottom: "1.5rem" }}>
                     {plan.desc}
                   </p>
 
-                  <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", marginBottom: "1.5rem" }}>
+                  <div className="bundle-price-rows" style={{ display: "flex", flexDirection: "column", gap: "0.4rem", marginBottom: "1.5rem" }}>
                     {([["Oriental + Fluffy Collection", `$${plan.classicRef}`], ["Creamy Boxes", `$${plan.premiumRef}`]] as [string, string][]).map(([label, price]) => (
-                      <div key={label} style={{
+                      <div key={label} className="bundle-price-row" style={{
                         display: "flex", justifyContent: "space-between",
                         padding: "0.5rem 0.75rem",
                         background: plan.id === "cozy" ? "rgba(196,98,45,0.07)" : "rgba(255,255,255,0.07)",
@@ -555,7 +575,7 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
                     ))}
                   </div>
 
-                  <div style={{
+                  <div className="bundle-cta" style={{
                     marginTop: "auto",
                     width: "100%", padding: "11px 0", textAlign: "center",
                     background: isActive ? plan.accent : "transparent",
