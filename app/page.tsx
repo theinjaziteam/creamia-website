@@ -50,10 +50,10 @@ const allFlavors: {
   category: "oriental" | "creamy" | "fluffy";
   image: string | null;
 }[] = [
-  { id: "halawet-jibn",      name: "Halawet El Jibn",         desc: "Sweet cheese rolls filled with ashta, soaked in rose syrup.",  boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/halawet-el-jibn.png" },
-  { id: "osmaliyeh",         name: "Osmaliyeh",               desc: "Crisp shredded osmaliyeh pastry with ashta cream and pistachios.", boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/osmaliyeh.jpg" },
-  { id: "halawet-riz",       name: "Halawet el Riz",          desc: "Traditional Levantine rice cream, sweetened with rose.",        boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/halawet-el-riz.png" },
-  { id: "moufataka",         name: "Moufataka",               desc: "Lebanese classic — rice pudding, caramel, nuts.",              boxPrice: 4, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/moufataka.jpg" },
+  { id: "halawet-jibn",      name: "Halawet El Jibn",         desc: "Sweet cheese rolls filled with ashta, soaked in rose syrup.",  boxPrice: 4.5, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/halawet-el-jibn.png" },
+  { id: "osmaliyeh",         name: "Osmaliyeh",               desc: "Crisp shredded osmaliyeh pastry with ashta cream and pistachios.", boxPrice: 4.5, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/osmaliyeh.jpg" },
+  { id: "halawet-riz",       name: "Halawet el Riz",          desc: "Traditional Levantine rice cream, sweetened with rose.",        boxPrice: 4.5, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/halawet-el-riz.png" },
+  { id: "moufataka",         name: "Moufataka",               desc: "Lebanese classic — rice pudding, caramel, nuts.",              boxPrice: 4.5, trayPrice: null, tier: "classic", category: "oriental", image: "/menu/moufataka.jpg" },
 
   { id: "tiramisu-classic",  name: "Classic Tiramisu",        desc: "Espresso-soaked ladyfingers, mascarpone cream, dark cocoa.",   boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: "/menu/classic-tiramisu.png" },
   { id: "tiramisu-brownie",  name: "Brownie Tiramisu",        desc: "Fudgy brownie base meets tiramisu cream, perfectly layered.",  boxPrice: 7, trayPrice: 15,   tier: "premium", category: "creamy", image: "/menu/brownie-tiramisu.png" },
@@ -63,10 +63,10 @@ const allFlavors: {
   { id: "raspberry-cheese",  name: "Raspberry Cheesecake",    desc: "Tangy raspberry coulis ribboned through silky cheesecake.",    boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: "/menu/raspberry-cheesecake.png" },
   { id: "choc-dubai",        name: "Chocolate Dubai Cake",    desc: "Rich chocolate layered with crispy kataifi and pistachio.",    boxPrice: 6, trayPrice: 13,   tier: "premium", category: "creamy", image: "/menu/chocolate-dubai-cake.png" },
 
-  { id: "halawa-bav",        name: "Halawa Bavaroise",        desc: "Lebanese halawa whipped into silky bavaroise cream.",           boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: "/menu/halawa-bavaroise.png" },
-  { id: "strawberry-mousse", name: "Strawberry Bavaroise",    desc: "Silky strawberry bavaroise over a buttery biscuit base.",       boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: "/menu/strawberry-bavaroise.png" },
-  { id: "mango-bav",         name: "Mango Bavaroise",         desc: "Tropical mango bavaroise with a light vanilla finish.",         boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: "/menu/mango-bavaroise.png" },
-  { id: "banana-bav",        name: "Banana Bavaroise",        desc: "Velvet banana bavaroise with caramelised biscuit crumble.",     boxPrice: 4, trayPrice: 10,   tier: "classic", category: "fluffy", image: "/menu/banana-bavaroise.png" },
+  { id: "halawa-bav",        name: "Halawa Bavaroise",        desc: "Lebanese halawa whipped into silky bavaroise cream.",           boxPrice: 4.5, trayPrice: 10,   tier: "classic", category: "fluffy", image: "/menu/halawa-bavaroise.png" },
+  { id: "strawberry-mousse", name: "Strawberry Bavaroise",    desc: "Silky strawberry bavaroise over a buttery biscuit base.",       boxPrice: 4.5, trayPrice: 10,   tier: "classic", category: "fluffy", image: "/menu/strawberry-bavaroise.png" },
+  { id: "mango-bav",         name: "Mango Bavaroise",         desc: "Tropical mango bavaroise with a light vanilla finish.",         boxPrice: 4.5, trayPrice: 10,   tier: "classic", category: "fluffy", image: "/menu/mango-bavaroise.png" },
+  { id: "banana-bav",        name: "Banana Bavaroise",        desc: "Velvet banana bavaroise with caramelised biscuit crumble.",     boxPrice: 4.5, trayPrice: 10,   tier: "classic", category: "fluffy", image: "/menu/banana-bavaroise.png" },
 ];
 
 const bundlePreviewImages = allFlavors.map(f => f.image).filter((src): src is string => !!src);
@@ -79,21 +79,21 @@ const menuCategories: { id: "oriental" | "creamy" | "fluffy"; label: string; not
 
 const bundlePlans: BundlePlan[] = [
   {
-    id: "cozy",
-    name: "Cozy Box",
-    count: 4,
-    desc: "Perfect for four — or just you.",
+    id: "trio",
+    name: "Trio Box",
+    count: 3,
+    desc: "Perfect for three — or just you.",
     bg: "#FFF0DB",
     accent: "#C4622D",
     textColor: "#261408",
     subtextColor: "#6B4F3A",
     border: "1px solid rgba(160,120,90,0.2)",
-    classicRef: 14,
+    classicRef: 12,
     premiumRef: 20,
   },
   {
-    id: "gathering",
-    name: "Gathering Box",
+    id: "jam3a",
+    name: "Jam3a Box",
     count: 6,
     desc: "Bring joy to every table.",
     bg: "#BE976C",
@@ -101,12 +101,12 @@ const bundlePlans: BundlePlan[] = [
     textColor: "#FFFFFF",
     subtextColor: "rgba(255,255,255,0.75)",
     border: "none",
-    classicRef: 21,
+    classicRef: 22.5,
     premiumRef: 27,
   },
   {
-    id: "celebration",
-    name: "Celebration Box",
+    id: "haretna-kela",
+    name: "Haretna Kela Box",
     count: 12,
     desc: "For the moments that deserve more.",
     bg: "#713600",
@@ -114,7 +114,7 @@ const bundlePlans: BundlePlan[] = [
     textColor: "#FFFFFF",
     subtextColor: "rgba(255,255,255,0.5)",
     border: "none",
-    classicRef: 39,
+    classicRef: 42,
     premiumRef: 51,
   },
 ];
@@ -541,8 +541,8 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
                       return (
                         <div key={bi} style={{
                           width: 26, height: 26, borderRadius: 6,
-                          background: plan.id === "cozy" ? "rgba(196,98,45,0.1)" : "rgba(255,255,255,0.1)",
-                          border: `1px solid ${plan.id === "cozy" ? "rgba(196,98,45,0.25)" : "rgba(255,255,255,0.18)"}`,
+                          background: plan.id === "trio" ? "rgba(196,98,45,0.1)" : "rgba(255,255,255,0.1)",
+                          border: `1px solid ${plan.id === "trio" ? "rgba(196,98,45,0.25)" : "rgba(255,255,255,0.18)"}`,
                           overflow: "hidden", flexShrink: 0,
                         }}>
                           {photo && <img src={photo} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}/>}
@@ -566,7 +566,7 @@ function BundlesSection({ onAddToCart }: { onAddToCart: (item: CartItem) => void
                       <div key={label} className="bundle-price-row" style={{
                         display: "flex", justifyContent: "space-between",
                         padding: "0.5rem 0.75rem",
-                        background: plan.id === "cozy" ? "rgba(196,98,45,0.07)" : "rgba(255,255,255,0.07)",
+                        background: plan.id === "trio" ? "rgba(196,98,45,0.07)" : "rgba(255,255,255,0.07)",
                         borderRadius: 6,
                       }}>
                         <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.8125rem", color: plan.subtextColor }}>{label}</span>
